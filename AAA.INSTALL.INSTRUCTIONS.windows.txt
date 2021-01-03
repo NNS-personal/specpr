@@ -1,0 +1,807 @@
+         INSTALLATION INSTRUCTIONS for SPECPR:
+
+BASIC INSTRUCTIONS
+------------------
+1. Create specpr account (optional).
+   Make a user account on your system with the name of specpr.  This is
+   to have a place to send bug reports to.  (alternativly, make a mail
+   alias to one appropriate person)
+
+
+2. (optional)
+   Create the directory 'src' in a location of your designation where
+   you want to put the source code if it does not exist.
+   Recommend /opt or /usr.  This will be referred to in the following
+   basic instructions as SRCDIR.
+
+   e.g.:
+         cd /opt/src/local
+      or
+         cd /src/local
+
+   You will put the specpr tar file in that directory to untar it.
+
+3. (Optional)
+   In the root directory, create a symbolic link file named 'src'
+   pointing to SRCDIR directory.
+
+   example:
+            ln -s /opt/src /src
+
+4. From SRCDIR, create a directory named 'local' (i.e. /src/local).
+   This will be referred to in the following instructions as LOCALDIR.
+
+5. Place the specpr tar file in LOCALDIR and uncompress and untar as
+   necessary.  This will create the 'specpr' directory in LOCALDIR
+   (i.e. /src/local/specpr) and will be subsequently referred as SPDIR:
+
+	uncompress specpr.tar.Z (if required)
+	tar xf specpr.tar
+
+   NOTE: SPDIR will be the environment variable SPECPR in the config file.
+
+6. (Optional if you do not have ratfor installed)
+   From SPDIR, go to the ratfor77 directory and perform the 
+   following to install the ratfor utility required to translate
+   rational fortran source to fortran77 for compile by f77.  If you
+   have f90, install the 'ratfor90' perl script in an appropriate
+   directory for execution (i.e. /usr/local/bin):
+
+        cd ratfor77
+	make
+	make install
+
+6. From SPDIR, go to the sspp directory and peform the following
+   to install the sspp (source pre-processor) utility used in the
+   build of specpr. 
+
+        cd src.sspp
+	make
+	make install
+
+7. From SPDIR, go to the utility directory and copy the scripts
+    to your local executable path.  We will assume that is
+    /usr/local/bin
+
+    cd utility
+    cp check_env /usr/local/bin
+    cp specpr    /usr/local/bin
+    cp sp_spool  /usr/local/bin
+    ln /usr/local/bin/specpr /usr/local/bin/dspecpr
+
+    cp specprhelp /usr/local/bin
+    cp specprnt   /usr/local/bin
+    cp checksrc   /usr/local/bin
+    cp spedit     /usr/local/bin
+    cp spfind     /usr/local/bin
+
+
+    NOTE: the sp_spool command is the plot spooling script and is
+    called from src.specpr/newplot/bldplt.r
+    If you want to install sp_spool in a location other than
+    /usr/local/bin, you must modify newplot.r or create a symbolic
+    link to it.
+
+8. IMPORTANT: To build specpr, your environment variables should be 
+   set accordingly from the config directory:
+
+        cd SPDIR/config  (e.g. cd /src/local/specpr/config )
+
+    Select the appropriate file and edit the setting for your system.
+    (you may want to make a caopy and edit the copy)
+
+     There are environments set up for tcsh/csh shells and  bourne/bash shells:
+
+	for csh - source the appropriate for for your enviornment 
+	for sh  - execute . shenv.<enviornment>
+
+    e.g. for a 64-bit ubuntu linux system using tcsh or csh:
+
+        cp cshenv.linux64.gfortran cshenv.linux64.mysystem
+        source cshenv.linux64.mysystem
+
+    run the command env to see what variables are set:
+
+        env
+
+    Note: you can add a line in /etc/csh.cshrc to source the appropriate file
+    or equivalent file for your shell.
+
+9. From SPDIR, go to the src.lib directory.  Perform the following -
+   this will create the sputil.a library and install it in SPDIR/lib: 
+
+        cd $SPECPR/src.lib 
+	make
+
+10. (Optional.) Next cd to the src.specpr/logo directory.
+    Edit the file "set.logo" for your site identification.
+    cd back to src.specpr directory.
+
+    The "set.logo" file is an ascii text file and can be viewed
+    and modified with any text editor if you want a banner
+    customized for you installation.
+
+        cd $SPECPR/src.specpr/ogo
+
+              edit the file set.logo
+
+              (for example:)
+		vi set.logo
+
+        cd ..
+
+
+11. From SPDIR, go to the src.specpr directory.  Perform the following -
+   this will create the pspecpr utility then install the utility and
+   it associated scripts (specpr and dspecpr) in /usr/local/bin.  Note
+   that this process creates the SPDIR/lib/specpr.a library used in 
+   the creation of other utilities/programs (i.e. radtran, tetracorder,
+   etc):
+
+        cd $SPECPR/src.specpr
+	make
+	make install
+
+   Notes:
+   Ubuntu: you will need gfortran and X11 libraries installed.
+   On one machine we had to install the packages libx11-6 and libx11-dev
+
+12. From SPDIR, create/install (make, make install) other utilites as
+   optionally needed from some of the following example directories -
+   see DETAILED INSTRUCTIONS for further information:
+
+        src.sp_stamp    # puts header stamp on specpr files for davinci
+
+	src.spprint     # prints specpr file contents
+
+	src.radtran     # radiative transfer models
+
+	src.spfeatures  # spfeatures database query
+
+	src.datatran    # data translation to specpr format for various
+                        # spectrometers.  In this directory is code for
+                        # CGAS from IRTF.
+
+13. To make plots from specpr, you must compile the plotting packages.
+
+    Specpr plots create a set of text and vector files and then the
+    sp_plot script calls the appropriate plotting package for a
+    particular device.  Software directories for the following devices exist:
+
+     src.tgifdaemon    # TGIF .obj file output
+
+     src.psplotdaemon  # Postscript output
+
+     src.hpgl          # HP graphics language output
+     src.hppen         # HP pen plotters (HPGL output)
+     src.laserjet      # HP laserjet printers (HPGL)
+
+    The above packages are unsupported although we currently use TGIF and
+    postscript output on numerous linux/unix machines.
+
+    Create the spool directories:
+
+       mkdir /usr/spool/gplot
+       chmod 777 /usr/spool/gplot
+
+       mkdir /usr/log/                    # may already exist
+       cp /dev/null /usr/log/plot.log     # log file
+       chmod 666 /usr/log/plot.log        # make log file writeable for all
+
+    Go to the strings directory and make the strings library (not need on
+    BSD Unix machines).  Go to the src.hpgl (for hpgl printers, the new
+    default for specpr plotting), or src.hppen (for pen plotters) directory
+    and make the daemon program.  You will have to select machine
+    dependent compile to select RS232 or HPIB plotters in the src.hppen
+    directory.  That can be done on the make command line so there should be
+    no files to edit.  Copy the executable (hpdaemon) to:
+    
+           /usr/lib/hpgldaemon (from src.hpgl) and/or
+           /usr/lib/hpdaemon   (from src.hppen)
+
+    Specpr puts temporary plot files into a special directory, so make the 
+    /usr/spool/gplot directory (or a symbolic link to a directory
+    appropriate for your system).
+
+    Some environment variables that the plotting scripts use:
+
+    MY_PS_PLOTTER    postscript printer
+    MY_HPGL_PLOTTER  HPGL printer (like laserjet 4 or 5)
+
+    For HPGL printers, you can customize your plots using environment
+    variables.  The vartiables and their defaults are:
+
+    p0=${HPGL_PEN0WIDTH:-0.30}   # pen 0 width in mm
+    p1=${HPGL_PEN1WIDTH:-0.60}   # pen 1 width in mm
+    p2=${HPGL_PEN2WIDTH:-0.40}   # pen 2 width in mm
+    p3=${HPGL_PEN3WIDTH:-0.60}   # pen 3 width in mm
+    p4=${HPGL_PEN4WIDTH:-0.80}   # pen 4 width in mm
+    p5=${HPGL_PEN5WIDTH:-1.00}   # pen 5 width in mm
+    p6=${HPGL_PEN6WIDTH:-0.50}   # pen 6 width in mm
+    p7=${HPGL_PEN7WIDTH:-0.70}   # pen 7 width in mm
+    
+    # pen colors
+    # color values are 0 to 255:   0,  0,  0 = black
+    #                            255,255,255 = white
+    #                            255,  0,  0 = red
+    #                              0,255,  0 = green
+    #                              0,  0,255 = blue
+    
+    pc0=${HPGL_PEN0COLOR:-0,0,0}   # pen 0 color, default = black
+    pc1=${HPGL_PEN1COLOR:-0,0,0}   # pen 1 color, default = black
+    pc2=${HPGL_PEN2COLOR:-0,0,0}   # pen 2 color, default = black
+    pc3=${HPGL_PEN3COLOR:-0,0,0}   # pen 3 color, default = black
+    pc4=${HPGL_PEN4COLOR:-0,0,0}   # pen 4 color, default = black
+    pc5=${HPGL_PEN5COLOR:-0,0,0}   # pen 5 color, default = black
+    pc6=${HPGL_PEN6COLOR:-0,0,0}   # pen 6 color, default = black
+    pc7=${HPGL_PEN7COLOR:-0,0,0}   # pen 7 color, default = black
+    
+    (the above are in the script: sphpglplotinit in the utility
+    directory.)
+
+
+
+    As noted above, the spool command must be customized.  Specpr
+    creates vector and text files in the /usr/spool/gplot directory
+    which hpdaemon then uses to build the plots.  The spool script is
+    run by specpr.  The spool script is the interface to the line
+    printer spooler.  The hpplotdaemon is run by the line printer spooler
+    so that multiple users can plot to the plotter at the "same" (meaning
+    interleaved) time.  Because installation of line printer spoolers is
+    site dependent, that is not described here.  A complete set of
+    copies of the speclab (system V) setup scripts, plotq
+    enabling/disabling scripts, system V lp model scripts can be found
+    in the src.hppen/SPOOLERS directory.
+    
+
+DONE
+
+
+
+
+NOTES AND INSTRUCTIONS  (OLD, need to update)
+-------------------------------------------------------------------
+Make a user account on your system with the name of specpr.  This is
+to have a place to send bug reports to.  (alternativly, make a mail
+alias to one appropriate person)
+
+Chose a directory for the source code.  For example, if you have
+space on the /usr disk, the unix convention would be to put it in
+the directory /usr/src/specpr
+
+Create a symbolic link named src in the root directory pointing to
+the install directory (i.e. from /, ln -s /usr/src src)
+
+(The tar distribution tape includes the specpr directory, so just cd
+to the course directory, e.g. cd /usr/src)
+
+SPACE REQUIRED:
+Contents of the tar tape: specpr source: ~8 megabytes
+
+                         Distribution     Space after compilation
+                         tape (megabytes)  (megabytes on node speclab)
+                 specpr:       8.2               19
+                 strings:      0.3                0.2
+                 DEMO:         0.8                -
+                 msgs:         0.01               -
+                 sspp:         0.02               0.6
+                 spsearch:     0.1                1.9
+                 ratfor:       0.1                0.2
+                 ------------------------------------
+                 Total        ~9                ~22
+
+When compiled (keeping all the object modules): you need about 22
+megabytes for specpr and 0.3 megabytes for strings.
+
+The strings directory is only needed for System V machines.
+
+The space needed to run a simple specpr session depends on the data.
+The DEMO takes less than a megabyte.  Big laboratory projects can take
+10 to 15 megabytes.  Each 256 point spectrum takes 1,536 bytes, and
+each additional 383 channels in a spectrum take 1,536 bytes.
+
+Cd to the directory where the source code will reside and run tar
+(e.g. tar xv0) to extract all code from the tape drive (0 in the
+example).  Several directories will be created (e.g. specpr, sspp).
+
+All utilities that the spectrum manager uses and those called by
+specpr are located in the directory "utility" under the specpr
+directory.  Whenever a special command is to be executed, you can
+find it there.  Within utility, there may be subdirectories that have
+machine specific versions of utilities, so you should check there
+for versions that will work with your machine.
+
+******************************
+To load the distribution tape:
+******************************
+
+       (IF you already have specpr, back it up before loading the
+              new version)
+
+       cd <your source directory>
+
+       tar x0
+
+(where 0 assumes the tape is on drive 0--you can change this)
+
+**************
+Compiling code
+**************
+
+First, go to the sspp directory and make and install sspp.  This is
+a simple c program called by make to select machine dependent code.
+Run the commands:
+
+         make
+         make install
+
+The make install just moves the executable to /usr/local/bin (you
+can move it wherever you want by hand, but it must be in your path).
+
+Now go to the specpr directory.
+-------------------------------
+
+Platform specific setup
+  Goto the syslib directory and copy the appropriate makefile into
+  place (i.e cp makefile.LINUX makefile)
+
+### NOTES 12/2009: looks like the above is now different.
+  make sure the SPKLUDGE variable is defined.
+
+(from the sspp dir, this would normally be: cd ../specpr)
+
+(Remember to get utilities from the utility directory and examine them
+to see if they need customization before you run them.)
+
+# sp_if_get no longer used (code no longer in SCCS)
+#Install sp_if_get (this script is used by the makefiles).  For
+#example, just copy utility/sp_if_get to a directory in your path, like
+#/usr/local/bin.  Make sure the protection is executable.
+#Example:
+#
+#          cp utility/sp_if_get /usr/local/bin
+#          chmod 555 /usr/local/bin/sp_if_get
+
+If running csh, do:
+
+          rehash
+
+so the new command is recognized.
+
+#The sp_if_get routine checks for the environment variable GET and
+#uses it if set, otherwise, it uses get.  See next note.
+#
+#NOTE: on some machines, "get" is not a command.  For example, on
+#some suns, you must do "sccs get".  That will not work with specpr.
+#First check if get is a real command on your system (be sure it is
+#not a csh or ksh alias).  If it is not, add it to /usr/local/bin (or
+#your equivalent.  For example, on suns create a file called "get"
+#(customarily put in /usr/local/bin) with the following two lines:
+#
+#          #!/bin/sh
+#          sccs get $*
+
+where the lines start at column 1.  Specpr uses the GET environment
+variable in most places, but not always.  Occasionally, it must do a
+regular get, so simply defining the environment variable is not
+enough.
+
+Copy the utility/check_env script to your install directory (like
+/usr/local/bin) and make sure it is executable.  This script is also
+used by the makefiles.
+
+Cd to the config directory:
+
+          cd config
+
+and find the env file appropriate to your system (such as env.SUN, or
+env.HP).  Check it to make sure it looks right.  These variables must be
+set every time a compile is done in the specpr directory, so it would be
+a good idea to install these into the system default login.
+
+	The SSPPFLAGS flag must have values set or the make will not
+	work properly.  You must select DEC or NONDEC and HPUX or
+	NONHPUX (I think this really is only system V = HPUX and
+	Berkeley = NONHPUX).  So if you are a system V unix, try seting
+	HPUX) and -XWIN if you have X windows on your system.
+
+        In SSPPFLAGS, use NOC2FUNDERBAR if calls to C routines do no
+        need a trailing _ and C2FUNDERBAR if they do.
+
+	Note: the SSPPFLAGS variable must NOT be preceded by a "-", but
+	additional values MUST have a "-" sign.
+
+	In FFLAGS (Fortran flags), probably all unix machines will
+	need -C.  You can include a -O (optimizer flag if desired).
+	In HPUX, the -O1 means first level of optimization only.  The
+	+T is an HPUX extension giving traceback if the program crashes.
+
+             WARNING on HP-UX +O3 +OP4 optimizer: some routines
+             may be optimized away!  See below for details on how to
+             detect this condition and work around it.
+
+	The RANLIB variable should be set to /bin/true for System V
+	machine, and any other machine that doesn't use ranlib.
+        This includes solaris machines, but not sunos.
+
+        Check that LDLIBS includes the appropraite library flags.
+
+        Check that the value of RANDRET is appropriate.  To check that
+        RANDRET is correct, see the rand system call manual pagefor
+        your machine.  On Suns and HP's, RANDRET=32767.
+        This variable is only used in the random number generator
+        subroutines in special function 39 (noise).
+
+        The SPECPR variable should be set to the path beginning from the
+        root directory (/) to the specpr directory (the directory
+        containing src.specpr).
+               For example:  setenv SPECPR /src/local/specpr
+
+        The SP_LOCAL variable is the path to the local bin
+        directory where you want to put executables.  For example, if you
+        are putting them in /usr/local/bin, then SP_LOCAL=/usr/local
+
+        The SP_BIN variable is the directory under SP_LOCAL where
+        the executables will actially be placed.
+
+
+Go to the src.specpr directory
+------------------------------
+
+IF MAKING SPECPR FROM SCRATCH (if not jump to the keyword MMMMake below:
+
+      Cd to the src.specpr directory (a sub directory in the specpr
+      directory) and type 
+
+              make really_clean
+
+      This will remove all old .o files and any old libraries.
+
+      Clear the make logging file:
+      cat /dev/null > make.out  # zero out make.out file.
+
+  NOTE for SOLARIS as well as HPUX machines (S800 and S700 at least):
+  Before proceeding to the next step (and everytime you do a make
+  really_clean) you must do the following.
+
+       cd syslib
+       chmod 644 makefile
+
+       now edit the makefile changing the ld stuff (see comments in
+       the makefile and follow those directions).
+
+       This kludge disables the tape I/O stuff.  On HPUX, a "units"
+       module is needed that does not exist.  This is a temporary
+       workaround which disables tape I/O (which no one really
+       uses anymore anyway).  The tape I/O enables users to
+       treat a tape (like a 9-track) as a random access disk
+       file.  Random access is not advisable on most modern
+       tapes, like DAT or Exabyte, so it really is not needed.
+
+
+MMMMake:  Make specpr from already compiled version:
+
+       If you get an already compiled version, the compiled code as
+       well as an executable is located in the src.specpr directory.
+       The executable is: dspecpr.  You can use this, or change your
+       logo to your institution and just do a make.  So just follow
+       the directions from here on.
+
+
+Next cd to the src.specpr/logo directory.
+Edit the file "set.logo" for your site identification.
+cd back to src.specpr directory:
+
+                cd ..
+
+type "make all"  (from the cshell do: make all >>& make.out & )
+
+This will take a while depending on the machine and if you are
+compiling from scratch.  On a VAX 750 it could
+take as long as ~7 hours.  On a Sun it is only about 45 minutes.
+On newer machines like the HP9000/750 it may be as little as 10
+minutes.
+
+Examine the make.out file for Stop or Error messages.  If one of
+these is encountered, go to that directory and examine the problem.
+To recompile only that directory, use "make directory" from the
+main specpr directory.
+
+	WARNING: On HP-UX machines when using the +O3 +OP4 optimizer
+	options, check for messages like the following:
+
+	   Warning on line 406 of /src/local/specpr/debug/redbil.f: 3241
+	   basic blocks, defaulting to level 1 optimization.
+	   To override, use +Obb<num> option, with <num> greater
+	   than or equal to 3241.
+
+	For example, vi the make.out file and search for "To override,".
+	The solution is to change your FFLAGS to: -C +T -O
+	and cd to the affected directories, remove the affected .o module
+	and type make.  The known problem areas as of HP-UX 9.0 are:
+
+	     3dio/redbil
+	     3dio/redbsq
+	     3dio/redbip
+	     fcn43-47/fft.o
+
+	After making these changes, a new library might have to be
+	included in LDLIBS.  On speclab (see config files discussion) we had
+	to do the following:
+
+	setenv LDLIBS '/usr/lib/libvec.a /usr/lib/X11R4/libX11.a -lm -lPW'
+
+LINUX: 
+      from the $SPECPR directory, create the link if it does not exist:
+      ln -s src.specpr/common/ common
+
+
+
+Install the specpr executable as /usr/local/lib/specpr.
+
+NOTE: WARNINGS about unused variables should be ignored.
+
+NOTE: in the common directory, blockdata Warnings about character datum
+      assigned to integer variable is OK!
+
+Cd to the utility directory (../utility) and examine the file
+specpr.sh to see if any changes will be necessary for your system.
+If so, make those changes and install the script 
+(cp specpr.sh /usr/local/bin/specpr)
+
+Now cd to the directory where you put the specpr script, and link
+specpr to other modules that you will compile:
+
+        ln specpr dspecpr
+        ln specpr radtran
+        ln specpr dradtran
+
+
+NOTE: NEVER modify files in utility subdirectories with node names (e.g.
+speclab).  Make your own subdirectory and put copies of your code
+there.
+
+
+Three scripts are executed by specpr:  "spedit", "specprnt" and "spool".
+Get copies from the utility directory, customize them and put them in
+/usr/local/bin and in a utility  subdirectory with your own
+node name (e.g. utility/mymachine).
+
+     The spedit script calls the appropritae editor, and probably doesn't
+     need any changes.
+
+     The specprnt script sends printouts to a line printer;
+     configure it to use your desired printer
+
+     The spool script is used to send the plotdaemon spool command
+     to a plot spooler.  Edit this for your site.
+
+Help facility: To add the specpr help facility,
+
+           cp utility/specprhelp /usr/local/bin
+
+You can examine it, but it should work correctly as is.
+
+Bug reports should be as a minimum sent to user specpr.  Create a shell
+script called "specpr.bugs" and put it in /usr/local/bin.  It could
+be something simple like: mail specpr or it could be more
+complicated and use the notes or news messaging system that will
+post the bug over the network (a copy of a specpr.bug program is in
+the utility directory).  That version sends mail to specpr and posts
+it to notes (see the last three lines, the very last line is needed
+to remove the temp file, but the previous two could be commented out
+to only send mail to specpr).
+
+Make the directory /usr/msgs.  The tar installation created a
+directory msgs at the same level as the specpr directory.  In that
+directory is a file called "specnotes".  Copy it to
+/usr/msgs/specnotes
+
+or as root:
+
+mkdir /usr/local/msgs
+ln -s /usr/local/msgs/ /usr/msgs
+cd /usr/local/msgs/
+cp /dev/null dradnotes
+cp /dev/null dspecnotes
+cp /dev/null radnotes
+cp /dev/null specnotes
+chown rclark *         # change rclark to whomever will manage msgs
+
+
+######### Tetracorder NOTES:
+
+set up /usr/local/securebin/logtetracorder
+
+add authorization stuff
+
+ln -s /var/log /usr/log
+cp /dev/null /var/log/tetracorder
+chmod 666 /var/log/tetracorder
+
+or change /usr/local/securebin/logtetracorder to write directly to
+/var/log/tetracorder  then the symbolic link is not needed.
+
+
+
+********************************************
+** You should now be ready to run specpr. **
+********************************************
+
+NOTE:  The make of specpr as shipped DO NOT INCLUDE THE PARSER.  The
+parser is a complicated c-fortran interface and is the most
+suscepable to machine dependencies (and we have not solved them).
+The parser compiles fine on suns, but it is up to you to go in and
+change the makefiles.  As shipped, the parser (f23) is a dummy routine
+that does nothing (it is called f23temp).  See the makefile in the
+parser directory for more details.
+
+
+
+Compiling other programs:
+-------------------------
+
+Go to the specpr/src.lib directory and type
+
+             make clean
+
+      then type:
+
+             make
+
+      This directory creates a library of subroutines used by
+      specpr support programs like spprint.
+
+spprint: print the contents of a specpr file (without going into specpr)
+
+      go to src.spprint/SRC directory and type make
+      when the make is complete, type: make install
+
+radtran: radiative transfer (mineral mixture) programs.
+
+      go to src.radtran/SRC and type make
+      when the make is complete, type: make install
+      This installs the radtran executable.
+      Go to the utility directory and copy the radtran and
+           dradtran directories to your local bin directory
+           and edit them to be sure the path points the the just
+           installed executable.
+      Create the file /usr/msgs/radnotes (a null length file).
+
+sptoascii: convert binary specpr file to ascii
+
+      go to src.datatran/SRC.sptoascii directory and type make
+      when the make is complete, type: make install
+
+asciitosp: convert an ascii file (like that produced by sptoascii)
+           to specpr binary format.
+
+      go to src.datatran/SRC.asciitosp directory and type make
+      when the make is complete, type: make install
+
+spfeatures: query a spectral features database.
+
+      go to src.spfeatures/SRC directory, read the README file for
+            instructions.
+      when the make is complete, type: make install
+
+radtran: radiative transfer routines.
+
+      go to the src.radtran/SRC directory and type make
+      when the make is complete, type: make install
+
+spsearch: spectral library database program.
+
+      go to spsearch directory (it is at the same level as the
+            specpr directory), read the README file for instructions.
+
+oldsptoascii: convert binary old format specpr file to ascii (works on
+              VAX Unix only)
+
+      go to src.datatran/SRC.olddatatran directory and
+            edit the make file for your system and type make.
+
+
+
+GRAPHICS TERMINAL SUPPORT:
+--------------------------
+
+    The main terminals supported are X-windows, HP2623a and HP2393A
+graphics terminals.  The HP's have relatively fast graphics and allow
+selective screen erase (used in graphics cursor location and interactive
+band analysis).  Although we doubt anyone really uses graphics terminals
+anymore (August, 1999) If you do not have one of these terminals, or
+X-windows, try an X-window simulator for PCs: Windows 95/98 (Macs?).
+    The latest addition to specpr graphics is full X-windows
+support, including selective erase, interactive band analysis, etc.
+    Other graphics support is Tektronix plot 10 (but you can not do
+selective erase in plot 10, so there is no interactive band analysis
+or graphics cursor read capability).  Also plot 10 has a funny
+feature of writing in the second half of the screen after you write
+past line 35.  Specpr does this in a few places and it may be
+difficult to see what is going on (this happens in the Sun window
+that does Tektronix emulation).  Specpr works well on terminals in
+plot 10 mode where the terminal does scrolling except when doing
+graphics.  Terminals that do this changing are: PC-Plot on IBM-PCs,
+and a DEC VT240 (except the DEC graphics are very low resolution and
+the characters are the wrong size, sort of half Tektronix
+emulation).
+    A variation of the plot 10 is the gterm emulator for suns from
+the University of Arizona.  Specpr works well with that package.
+
+DEMOS
+    The demos are shipped to run on an HP graphics compatible
+terminal.  If you do not have one, you will have to add the commands
+to change to your terminal type to the command file in
+intro.demo/input (see the users manual).  The appropriate place
+would be right after the setup (it is commented so you can easily
+find it).  For example, to change to a DEC VT240
+terminal, add the line "bg21;" (without the quotes).
+
+ADDING NEW GRAPHICS SUPPORT:
+----------------------------
+    Adding a new graphics device is relatively easy.  For example,
+adding plot 10 capability took only two hours.  All the routines
+that need modification are in the directory hpgraph.  If device
+specific subroutines must be called 
+they should be done as a compile dependent
+option.  Basically, the device specific routines should be in the
+code as comments with keywords (like we now have HPUX, NONHPUX, DEC,
+NONDEC; we could use GKS for GKS and the ratfor would look like:
+#GKS call xxx(a,b)
+An example of this method is in free/ihchar.r
+Also look at the makefile.
+    When adding a new graphics device, choose a number (see the
+manual for those already in use) that can be used to select that
+device.  The number should be < 99 for graphics devices.
+    Right now, graphics assumes a 390 high by 512 wide screen.  It
+has not been made more general because we wanted to optimize the
+speed of graphics output as much as possible.  This could be changed
+now (but it involves a lot of code) because new machines are very
+fast, and I/O to the graphics is usually the bottleneck.
+
+
+MACHINE SPECIFIC PROBLEMS:
+--------------------------
+Byte swap problems:  Input is compared to alphanumeric characters, and
+internally some machines store them in different positions.  (This was
+originally the case between suns+hp's and vaxes).  If your input seems
+not to be recognized, then change the ihchar.r routine in the free
+directory.  Examine the two lines commented DEC and NONDEC.  This is
+just a byte swap difference.  You might hand compile this routine with
+the other line selected and see if that is the problem.  If it is, then
+binary data will be a problem too (spectral libraries from USGS speclab)
+specpr files are in IEEE format as with Suns, HPs.  We are working on a
+Linux port and will address the byte swap issue on PCs during this port
+(fall/1999).
+
+
+*** Sun 9/90 (Sun OS version 4.0.3): ***
+    The make files tend to leave a lot of temporary files around.
+
+
+*** speclab 9/90: ***
+    I am having problems interfacing the parser routines under
+system V.  There are problems with the leading and/or trailing
+underbars.  If you are trying to compile on system V, you can get
+around it by compiling the f23tmp dummy subroutine in the
+parser/work directory by hand (see note above).
+
+General problems:  Occasionally (seems to happen a lot on Suns) when
+doing a make, it will stop and say something about it can't create a
+debug file in either the debug or tmp directories.  Simply delete
+the files (in the debug and tmp directories--if it complains about
+one directory, check the other) and start the make again.  It does
+this because of a permission problem.
+
+If you have any questions, call or send mail
+
+Roger N. Clark
+U.S. Geological Survey, MS 964
+Box 25046 Federal Center
+Denver, CO 80225-0046
+(303) 236-1332
+ FTS  776-1332
+speclab.cr.usgs.gov
+
+

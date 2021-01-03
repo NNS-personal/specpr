@@ -1,0 +1,51 @@
+In ratfor source, make the following modifications if needed:
+
+1.  Bracket if if
+
+2.  Replace "repeat" "until" with another type loop, including
+    the use of "<label>, if (.not. condition) goto <lablel>"
+	Repeat until seems to be working now as of 
+        src.specpr/extn/iplot.r
+		repeat {
+			....
+		} until(il==0)
+
+3.  For "next <number greater than 1>" or "break <number greater
+    than one>", the code should be changed to eliminte.  "next",
+    "next 1", "break", or "break 1" are changed to "cycle" or
+    "break" respectively. 
+
+4   A do loop statement must include a comma between 
+    initial value and limit
+		do i = 1, 10
+
+5   The continued lines for a format statement should not begin
+    in column 1 (maybe not 2-6 either). (refer src.specpr/fass/wdgsb1.r)
+
+6   An arithmetic if in the source need to be broken out into 
+    seperate if statements.  Example:
+
+	%       if (invtl) 20,30,40  becomes:
+
+                if (intvl.lt.0) go to 20
+                if (intvl.eq.0) go to 30
+                if (intvl.gt.0) go to 40
+
+7   Replace "switch/case" statements in source with "if/else if"
+
+8   Space between equivalence and (
+
+9   A computed goto in the source need to be broken out into
+    seperate if statements.  Example:
+
+                go to (200,220,210), nderiv becomes:
+
+                if (nderiv.eq.1) go to 200
+                if (nderiv.eq.2) go to 220
+                if (nderiv.eq.3) go to 210
+
+10  In source, all labels should begin in column 1
+
+11  A comment line should not immediately follow a labed format line
+
+12  A comment should not be on the same line as a "return" statement

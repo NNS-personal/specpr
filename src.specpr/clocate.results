@@ -1,0 +1,1230 @@
+== crtp/.cmd
+== dtol/fregex.cc
+== io/swap.c
+== io/swab4order.c
+== io/fpv2t.c
+== io/fpt2v.c
+== main/.cmd
+== parser/math.c
+== parser/io.c
+== parser/parser.c
+short error;							/* error comp flag */
+== parser/history.c
+== plotdaemon/finishplt.c
+== plotdaemon/finishup.c
+== plotdaemon/initplot.c
+== plotdaemon/logerr.c
+== plotdaemon/main.c
+== plotdaemon/openargs.c
+== plotdaemon/plotem.c
+	static flag = 0;
+int mathflag = 0;
+int gflag = 0;
+				gflag = 1;
+				gflag = 0;
+				mathflag = 1;
+				mathflag = 0;
+		if (mathflag == 1)
+		else if (gflag == 1)
+				gflag = 1;
+				gflag = 0;
+				mathflag = 1;
+				mathflag = 0;
+		if (mathflag == 1 )
+		else if (gflag == 1)
+== plotdaemon/stuff.c
+== syshpux/nowreading.c
+== syshpux/nowwriting.c
+== syshpux/re_exec.c
+== syshpux/units.c
+== syslib/idate.c
+== syslib/SRC.LINUX.kludge/bkrec.c
+== syslib/SRC.LINUX.kludge/frdrec.c
+== syslib/SRC.LINUX.kludge/redtap.c
+== syslib/SRC.LINUX.kludge/wrttap.c
+== syslib/SRC.HPUX.kludge/bkrec.c
+== syslib/SRC.HPUX.kludge/frdrec.c
+== syslib/SRC.HPUX.kludge/redtap.c
+== syslib/SRC.HPUX.kludge/wrttap.c
+== syslib/chkbit.c
+== syslib/SRC.SOLARIS.kludge/bkrec.c
+== syslib/SRC.SOLARIS.kludge/frdrec.c
+== syslib/SRC.SOLARIS.kludge/redtap.c
+== syslib/SRC.SOLARIS.kludge/wrttap.c
+== syslib/clrbit.c
+== syslib/fcuser.c
+== syslib/frandom.c
+== syslib/frdrec.c
+== syslib/fsize.c
+== syslib/fsleep.c
+== syslib/getpid.c
+== syslib/ilink.c
+== syslib/iread.c
+== syslib/iulink.c
+== syslib/redtap.c
+== syslib/rewinf.c
+== syslib/iwrite.c
+== syslib/setbit.c
+== syslib/time.c
+== syslib/wrttap.c
+== syslib/ixdate.c
+== syslib/SRC.OTHER.kludge/dummy.c
+== syslib/bkrec.c
+ *   sspp with -HPUX flag since the line is explicitly 
+== syslib/checkendian.c
+== syslinux/regcompx.c
+== syslinux/re_exec.c
+== syslinux/units.c
+== syssun/units.c
+== xwindow/xdraw.c
+== xwindow/xerase.c
+== xwindow/xflush.c
+== xwindow/xinit.c
+openwindow(x,y,width,height,flag,gc)
+int x,y,width,height,flag;
+	SizeHints.flags 	= PPosition | PSize;
+== xwindow/xread.c
+== xwindow/xsetline.c
+== xwindow/xwrite.c
+== xwindow/xclear.c
+== xwindow/xcrsrd.c
+== xwindow/xtext.c
+== xwindow/init.c.save
+openwindow(x,y,width,height,flag,gc)
+int x,y,width,height,flag;
+	SizeHints.flags 	= PPosition | PSize;
+== 3dio/SRC/makefile
+	ld $(LFLAGS) -r -o ../3dio.o $(OBJ)
+	$(RF) $(RFLAGS) read3d.r > read3d.f
+	$(F77) $(FFLAGS) -c read3d.f
+	$(RF) $(RFLAGS) file3d.r > file3d.f
+	$(F77) $(FFLAGS) -c file3d.f
+	$(RF) $(RFLAGS) hedr3d.r > hedr3d.f
+	$(F77) $(FFLAGS) -c hedr3d.f
+	$(RF) $(RFLAGS) blkext.r > blkext.f
+	$(F77) $(FFLAGS) -c blkext.f
+	$(RF) $(RFLAGS) redbsq.r > redbsq.f
+	$(F77) $(FFLAGS) -c redbsq.f
+	$(RF) $(RFLAGS) redbil.r > redbil.f
+	$(F77) $(FFLAGS) -c redbil.f
+	$(RF) $(RFLAGS) redbip.r > redbip.f
+	$(F77) $(FFLAGS) -c redbip.f
+	$(RF) $(RFLAGS) seth3d.r > seth3d.f
+	$(F77) $(FFLAGS) -c seth3d.f
+	$(RF) $(RFLAGS) lstrec.r > lstrec.f
+	$(F77) $(FFLAGS) -c lstrec.f
+	$(RF) $(RFLAGS) num2ch.r > num2ch.f
+	$(F77) $(FFLAGS) -c num2ch.f
+== 3dio/makefile
+	ld $(LFLAGS) -r -o $(SP_OBJ)/3dio.o $(OBJ)
+	$(RF) $(RFLAGS) read3d.r > read3d.f
+	$(F77) $(FFLAGS) -c read3d.f
+	$(RF) $(RFLAGS) file3d.r > file3d.f
+	$(F77) $(FFLAGS) -c file3d.f
+	$(RF) $(RFLAGS) hedr3d.r > hedr3d.f
+	$(F77) $(FFLAGS) -c hedr3d.f
+	$(RF) $(RFLAGS) filevic.r > filevic.f
+	$(F77) $(FFLAGS) -c filevic.f
+	$(RF) $(RFLAGS) hedrvic.r > hedrvic.f
+	$(F77) $(FFLAGS) -c hedrvic.f
+	$(RF) $(RFLAGS) blkext.r > blkext.f
+	$(F77) $(FFLAGS) -c blkext.f
+	$(RF) $(RFLAGS) redbsq.r > redbsq.f
+	$(F77) $(FFLAGS) -c redbsq.f
+	$(RF) $(RFLAGS) redbil.r > redbil.f
+	$(F77) $(FFLAGS) -c redbil.f
+	$(RF) $(RFLAGS) redbip.r > redbip.f
+	$(F77) $(FFLAGS) -c redbip.f
+	$(RF) $(RFLAGS) seth3d.r > seth3d.f
+	$(F77) $(FFLAGS) -c seth3d.f
+	$(RF) $(RFLAGS) lstrec.r > lstrec.f
+	$(F77) $(FFLAGS) -c lstrec.f
+	$(RF) $(RFLAGS) num2ch.r > num2ch.f
+	$(F77) $(FFLAGS) -c num2ch.f
+== add/makefile
+	ld $(LFLAGS) -r -o $(SP_OBJ)/add.o $(OBJ)
+	$(RF) $(RFLAGS) dlterr.r > dlterr.f
+	$(F77) $(FFLAGS) -c dlterr.f
+	$(RF) $(RFLAGS) dstdev.r > dstdev.f
+	$(F77) $(FFLAGS) -c dstdev.f
+	$(RF) $(RFLAGS) stdev.r > stdev.f
+	$(F77) $(FFLAGS) -c stdev.f 
+	$(RF) $(RFLAGS) runadd.r > runadd.f
+	$(F77) $(FFLAGS) -c runadd.f 
+	$(RF) $(RFLAGS) wegadd.r > wegadd.f
+	$(F77) $(FFLAGS) -c wegadd.f
+== band/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) bandel.r > bandel.f 
+	$(F77) $(FFLAGS) -c bandel.f
+	$(RF) $(RFLAGS) banins.r > banins.f
+	$(F77) $(FFLAGS) -c banins.f
+	$(RF) $(RFLAGS) banmov.r > banmov.f 
+	$(F77)  $(FFLAGS) -c banmov.f 
+	$(RF) $(RFLAGS) banorm.r > banorm.f 
+	$(F77) $(FFLAGS) -c banorm.f
+	$(RF) $(RFLAGS) banscr.r > banscr.f   
+	$(F77)  $(FFLAGS) -c banscr.f 
+== common/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ) 
+	$(RF) $(RFLAGS) blockdata.r >  blockdata.f 
+	$(F77) $(FFLAGS) -c blockdata.f 
+== crtp/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) alplty.r >  alplty.f 
+	$(F77) $(FFLAGS) -c alplty.f
+	$(RF) $(RFLAGS) chplta.r >  chplta.f
+	$(F77) $(FFLAGS) -c chplta.f
+	$(RF) $(RFLAGS) crtplt.r >  crtplt.f 
+	$(F77) $(FFLAGS) -c crtplt.f
+	$(RF) $(RFLAGS) crtpsc.r >  crtpsc.f 
+	$(F77) $(FFLAGS) -c  crtpsc.f
+	$(RF) $(RFLAGS) er.r >  er.f 
+	$(F77) $(FFLAGS) -c er.f
+	$(SSPP) -r -$(SSPPFLAGS) cursrd.r > cursrd.x
+	$(RF) $(RFLAGS) cursrd.x >  cursrd.f 
+	$(F77) $(FFLAGS) -c cursrd.f
+	$(RF) $(RFLAGS) gcchan.r > gcchan.f 
+	$(F77) $(FFLAGS) -c gcchan.f
+	$(RF) $(RFLAGS) gcrpos.r > gcrpos.f 
+	$(F77) $(FFLAGS) -c gcrpos.f
+	$(RF) $(RFLAGS) in.r >  in.f 
+	$(F77) $(FFLAGS) -c in.f
+	$(RF) $(RFLAGS) inice.r > inice.f 
+	$(F77) $(FFLAGS) -c inice.f
+	$(RF) $(RFLAGS) iwplta.r >  iwplta.f 
+	$(F77) $(FFLAGS) -c iwplta.f
+	$(RF) $(RFLAGS) ma.r >  ma.f  
+	$(F77) $(FFLAGS) -c ma.f
+	$(RF) $(RFLAGS) maw.r >  maw.f 
+	$(F77) $(FFLAGS) -c maw.f
+	$(RF) $(RFLAGS) signif.r > signif.f 
+	$(F77) $(FFLAGS) -c signif.f
+	$(RF) $(RFLAGS) ticks.r >  ticks.f
+	$(F77) $(FFLAGS) -c ticks.f
+	$(RF) $(RFLAGS) va.r >  va.f 
+	$(F77) $(FFLAGS) -c va.f
+	$(RF) $(RFLAGS) vaw.r >  vaw.f 
+	$(F77) $(FFLAGS) -c vaw.f
+	$(RF) $(RFLAGS) window.r >  window.f 
+	$(F77) $(FFLAGS) -c window.f
+	$(SSPP) -r -$(SSPPFLAGS) wriout.r > wriout.x 
+	$(RF) $(RFLAGS) wriout.x >  wriout.f 
+	$(F77) $(FFLAGS) -c wriout.f
+	$(RF) $(RFLAGS) wvplta.r >  wvplta.f 
+	$(F77) $(FFLAGS) -c  wvplta.f
+== dtol/makefile
+	ld $(LFLAGS) -r -o $(SP_OBJ)/dtol.o $(OBJ)
+	$(RF) $(RFLAGS) disv.r > disv.f 
+	$(F77) $(FFLAGS) -c disv.f
+	$(RF) $(RFLAGS) inftrn.r > inftrn.f 
+	$(F77) $(FFLAGS) -c inftrn.f
+	$(RF) $(RFLAGS) listfl.r > listfl.f
+	$(F77) $(FFLAGS) -c listfl.f
+	$(RF) $(RFLAGS) startran.r > startran.f  
+	$(F77) $(FFLAGS) -c startran.f
+	$(RF) $(RFLAGS) tapevol.r > tapevol.f 
+	$(F77) $(FFLAGS) -c tapevol.f
+	$(RF) $(RFLAGS) tapelun.r > tapelun.f 
+	$(F77) $(FFLAGS) -c tapelun.f
+	$(RF) $(RFLAGS) tcheck.r > tcheck.f
+	$(F77) $(FFLAGS) -c tcheck.f
+	$(RF) $(RFLAGS) redcod.r > redcod.f
+	$(F77) $(FFLAGS) -c redcod.f
+	$(SSPP) -r -$(SSPPFLAGS) search.r  > search.x
+	$(RF) $(RFLAGS) search.x > search.f
+	$(F77) $(FFLAGS) -c search.f
+	$(SSPP) -c -$(SSPPFLAGS) fregex.cc > fregex.c
+	$(CC) $(CFLAGS) -c fregex.c
+	$(RF) $(RFLAGS) lprint.r > lprint.f 
+	$(F77) $(FFLAGS) -c lprint.f
+	$(RF) $(RFLAGS) ptxt1.r > ptxt1.f 
+	$(F77) $(FFLAGS) -c ptxt1.f
+	$(RF) $(RFLAGS) pdatl1.r > pdatl1.f 
+	$(F77) $(FFLAGS) -c pdatl1.f
+	$(RF) $(RFLAGS) zeroin.r > zeroin.f 
+	$(F77) $(FFLAGS) -c zeroin.f
+	$(RF) $(RFLAGS) cprint.r > cprint.f 
+	$(F77) $(FFLAGS) -c cprint.f
+	$(RF) $(RFLAGS) flname.r > flname.f 
+	$(F77) $(FFLAGS) -c flname.f
+	$(RF) $(RFLAGS) wcomma.r > wcomma.f 
+	$(F77) $(FFLAGS) -c wcomma.f
+	$(RF) $(RFLAGS) ptxtc.r > ptxtc.f 
+	$(F77) $(FFLAGS) -c ptxtc.f
+	$(RF) $(RFLAGS) prheader.r > prheader.f 
+	$(F77) $(FFLAGS) -c prheader.f
+== dummy/work/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	ratfor $(RFLAGS) work/f26.r >$(SP_DBG)/f26.f
+	f77 $(FFLAGS) -c $(SP_DBG)/f26.f
+	ratfor $(RFLAGS) work/f27.r >$(SP_DBG)/f27.f
+	f77 $(FFLAGS) -c $(SP_DBG)/f27.f
+	ratfor $(RFLAGS) work/f28.r >$(SP_DBG)/f28.f
+	f77 $(FFLAGS) -c $(SP_DBG)/f28.f
+	ratfor $(RFLAGS) work/f29.r >$(SP_DBG)/f29.f
+	f77 $(FFLAGS) -c $(SP_DBG)/f29.f
+== dummy/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) work/f26.r >f26.f
+	$(F77) $(FFLAGS) -c f26.f
+	$(RF) $(RFLAGS) work/f27.r >f27.f
+	$(F77) $(FFLAGS) -c f27.f
+	$(RF) $(RFLAGS) work/f28.r >f28.f
+	$(F77) $(FFLAGS) -c f28.f
+	$(RF) $(RFLAGS) work/f29.r >f29.f
+	$(F77) $(FFLAGS) -c f29.f
+	$(RF) $(RFLAGS) work/f39.r >f39.f
+	$(F77) $(FFLAGS) -c f39.f
+== dvml/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) mulrun.r > mulrun.f 
+	$(F77) $(FFLAGS) -c mulrun.f
+	$(RF) $(RFLAGS) rundiv.r > rundiv.f
+	$(F77) $(FFLAGS) -c rundiv.f
+== extn/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) extnct.r > extnct.f
+	$(F77) $(FFLAGS) -c extnct.f
+	$(RF) $(RFLAGS) extnta.r > extnta.f
+	$(F77) $(FFLAGS) -c extnta.f
+	$(RF) $(RFLAGS) extplt.r > extplt.f 
+	$(F77) $(FFLAGS) -c extplt.f
+	$(RF) $(RFLAGS) iplot.r > iplot.f
+	$(F77) $(FFLAGS) -c iplot.f
+	$(RF) $(RFLAGS) linfit.r > linfit.f
+	$(F77) $(FFLAGS) -c linfit.f
+== fass/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) chkdev.r > chkdev.f
+	$(F77) $(FFLAGS) -c chkdev.f
+	$(RF) $(RFLAGS) dfasin.r > dfasin.f
+	$(F77)  $(FFLAGS) -c dfasin.f
+	$(RF) $(RFLAGS) rmpath.r > rmpath.f
+	$(F77)  $(FFLAGS) -c rmpath.f
+== fcn01-08/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) comprs.r > comprs.f 
+	$(F77) $(FFLAGS) -c comprs.f
+	$(RF) $(RFLAGS) dtsort.r > dtsort.f 
+	$(F77) $(FFLAGS) -c dtsort.f
+	$(RF) $(RFLAGS) f1.r > f1.f
+	$(F77) $(FFLAGS) -c f1.f
+	$(RF) $(RFLAGS) f2.r > f2.f
+	$(F77) $(FFLAGS) -c f2.f
+	$(RF) $(RFLAGS) f3.r > f3.f
+	$(F77) $(FFLAGS) -c f3.f
+	$(RF) $(RFLAGS) f4.r > f4.f
+	$(F77) $(FFLAGS) -c f4.f
+	$(RF) $(RFLAGS) f5.r > f5.f
+	$(F77) $(FFLAGS) -c f5.f
+	$(RF) $(RFLAGS) f6.r > f6.f
+	$(F77) $(FFLAGS) -c f6.f
+	$(RF) $(RFLAGS) f7.r > f7.f
+	$(F77) $(FFLAGS) -c f7.f
+	$(RF) $(RFLAGS) f8.r > f8.f
+	$(F77) $(FFLAGS) -c f8.f
+	$(RF) $(RFLAGS) manhst.r > manhst.f
+	$(F77) $(FFLAGS) -c manhst.f
+	$(RF) $(RFLAGS) planck.r > planck.f
+	$(F77) $(FFLAGS) -c planck.f
+== fcn09-11/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) bchop.r > bchop.f
+	$(F77) $(FFLAGS) -c bchop.f
+	$(RF) $(RFLAGS) bndrem.r > bndrem.f
+	$(F77) $(FFLAGS) -c bndrem.f
+	$(RF) $(RFLAGS) conrem.r > conrem.f
+	$(F77) $(FFLAGS) -c conrem.f
+	$(RF) $(RFLAGS) f10.r > f10.f
+	$(F77) $(FFLAGS) -c f10.f
+	$(RF) $(RFLAGS) f9.r > f9.f 
+	$(F77) $(FFLAGS) -c f9.f
+	$(RF) $(RFLAGS) f11.r > f11.f 
+	$(F77) $(FFLAGS) -c f11.f
+	$(RF) $(RFLAGS) f11dfl.r > f11dfl.f
+	$(F77) $(FFLAGS) -c f11dfl.f
+	$(RF) $(RFLAGS) f11nrm.r > f11nrm.f
+	$(F77) $(FFLAGS) -c f11nrm.f
+	$(RF) $(RFLAGS) f11tml.r > f11tml.f 
+	$(F77) $(FFLAGS) -c f11tml.f
+	$(RF) $(RFLAGS) filinp.r > filinp.f
+	$(F77) $(FFLAGS) -c filinp.f
+== fcn12-13/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) bubble.r > bubble.f 
+	$(F77) $(FFLAGS) -c bubble.f
+	$(RF) $(RFLAGS) f12.r > f12.f 
+	$(F77) $(FFLAGS) -c f12.f
+	$(RF) $(RFLAGS) f12itp.r > f12itp.f
+	$(F77) $(FFLAGS) -c f12itp.f
+	$(RF) $(RFLAGS) f12wav.r > f12wav.f 
+	$(F77) $(FFLAGS) -c f12wav.f
+	$(RF) $(RFLAGS) f13.r > f13.f
+	$(F77) $(FFLAGS) -c f13.f
+	$(RF) $(RFLAGS) icsicu.r > icsicu.f 
+	$(F77) $(FFLAGS) -c icsicu.f
+	$(RF) $(RFLAGS) icsevu.r > icsevu.f
+	$(F77) $(FFLAGS) -c icsevu.f
+	$(RF) $(RFLAGS) merger.r > merger.f
+	$(F77) $(FFLAGS) -c merger.f
+== fcn14-16/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) chdata.r > chdata.f
+	$(F77) $(FFLAGS) -c chdata.f
+	$(RF) $(RFLAGS) chdel.r > chdel.f 
+	$(F77) $(FFLAGS) -c chdel.f
+	$(RF) $(RFLAGS) chinst.r > chinst.f
+	$(F77) $(FFLAGS) -c chinst.f
+	$(RF) $(RFLAGS) chlist.r > chlist.f
+	$(F77) $(FFLAGS) -c chlist.f
+	$(RF) $(RFLAGS) chprnt.r > chprnt.f 
+	$(F77) $(FFLAGS) -c chprnt.f
+	$(RF) $(RFLAGS) f14.r > f14.f
+	$(F77) $(FFLAGS) -c f14.f
+	$(RF) $(RFLAGS) f15.r > f15.f 
+	$(F77) $(FFLAGS) -c f15.f
+	$(RF) $(RFLAGS) f15cde.r > f15cde.f 
+	$(F77) $(FFLAGS) -c f15cde.f
+	$(RF) $(RFLAGS) f16.r > f16.f
+	$(F77) $(FFLAGS) -c f16.f
+== fcn17-19/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) convol.r > convol.f
+	$(F77) $(FFLAGS) -c convol.f
+	$(RF) $(RFLAGS) delx.r > delx.f
+	$(F77) $(FFLAGS) -c delx.f
+	$(RF) $(RFLAGS) gfiles.r > gfiles.f
+	$(F77) $(FFLAGS) -c gfiles.f
+	$(RF) $(RFLAGS) ggauss.r > ggauss.f
+	$(F77) $(FFLAGS) -c ggauss.f
+	$(RF) $(RFLAGS) f17.r > f17.f
+	$(F77) $(FFLAGS) -c f17.f
+	$(RF) $(RFLAGS) f18.r > f18.f
+	$(F77) $(FFLAGS) -c f18.f
+	$(RF) $(RFLAGS) determ.r > determ.f
+	$(F77) $(FFLAGS) -c determ.f
+	$(RF) $(RFLAGS) f19.r > f19.f 
+	$(F77) $(FFLAGS) -c f19.f
+	$(RF) $(RFLAGS) polfit.r > polfit.f 
+	$(F77) $(FFLAGS) -c polfit.f
+== fcn20-25/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(SSPP) -r -$(SSPPFLAGS) f20.r > f20.x
+	$(RF) $(RFLAGS) f20.x > f20.f
+	$(F77) $(FFLAGS) -c f20.f
+	$(RF) $(RFLAGS) f21.r > f21.f
+	$(F77) $(FFLAGS) -c f21.f
+	$(RF) $(RFLAGS) f22.r > f22.f
+	$(F77) $(FFLAGS) -c f22.f
+	$(RF) $(RFLAGS) f24.r > f24.f
+	$(F77) $(FFLAGS) -c f24.f
+	$(RF) $(RFLAGS) f24dfl.r > f24dfl.f
+	$(F77) $(FFLAGS) -c f24dfl.f
+	$(RF) $(RFLAGS) f24nrm.r > f24nrm.f
+	$(F77) $(FFLAGS) -c f24nrm.f
+	$(RF) $(RFLAGS) f24tml.r > f24tml.f
+	$(F77) $(FFLAGS) -c f24tml.f 
+	$(RF) $(RFLAGS) f25.r > f25.f
+	$(F77) $(FFLAGS) -c f25.f
+	$(RF) $(RFLAGS) lsqft.r > lsqft.f
+	$(F77) $(FFLAGS) -c lsqft.f
+== fcn35-39/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) noise.r > noise.f 
+	$(F77) $(FFLAGS) -c noise.f
+	$(RF) $(RFLAGS) f39.r > f39.f 
+	$(F77) $(FFLAGS) -c f39.f
+	$(RF) $(RFLAGS) f38.r > f38.f 
+	$(F77) $(FFLAGS) -c f38.f
+	$(RF) $(RFLAGS) f37.r > f37.f 
+	$(F77) $(FFLAGS) -c f37.f
+	$(RF) $(RFLAGS) nvres.r > nvres.f 
+	$(F77) $(FFLAGS) -c nvres.f
+	$(RF) $(RFLAGS) f36.r > f36.f 
+	$(F77) $(FFLAGS) -c f36.f
+	$(RF) $(RFLAGS) bdmzset.r > bdmzset.f 
+	$(F77) $(FFLAGS) -c bdmzset.f
+	$(RF) $(RFLAGS) bandzmp.r > bandzmp.f 
+	$(F77) $(FFLAGS) -c bandzmp.f
+== fcn40-42/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) f40.r > f40.f
+	$(F77) $(FFLAGS) -c f40.f
+	$(RF) $(RFLAGS) f41.r > f41.f
+	$(F77) $(FFLAGS) -c f41.f
+	$(RF) $(RFLAGS) xbin.r > xbin.f
+	$(F77) $(FFLAGS) -c xbin.f
+	$(RF) $(RFLAGS) f42.r > f42.f
+	$(F77) $(FFLAGS) -c f42.f
+	$(RF) $(RFLAGS) bandmp.r > bandmp.f
+	$(F77) $(FFLAGS2) $(FOPT2) -c bandmp.f
+	$(RF) $(RFLAGS) bdmset.r > bdmset.f
+	$(F77) $(FFLAGS) -c bdmset.f
+	$(RF) $(RFLAGS) wtochbin.r > wtochbin.f
+	$(F77) $(FFLAGS) -c wtochbin.f
+== fcn43-47/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) fft.r > fft.f
+	$(F77) $(FFLAGS) -c fft.f
+	$(RF) $(RFLAGS) f43.r > f43.f
+	$(F77) $(FFLAGS) -c f43.f
+	$(RF) $(RFLAGS) conanl.r > conanl.f
+	$(F77) $(FFLAGS) -c conanl.f
+	$(RF) $(RFLAGS) dpfix.r > dpfix.f
+	$(F77) $(FFLAGS) -c dpfix.f
+	$(RF) $(RFLAGS) f44.r > f44.f
+	$(F77) $(FFLAGS) -c f44.f
+	$(RF) $(RFLAGS) fill.r > fill.f
+	$(F77) $(FFLAGS) -c fill.f
+	$(RF) $(RFLAGS) hull.r > hull.f
+	$(F77) $(FFLAGS) -c hull.f
+	$(RF) $(RFLAGS) lowp.r > lowp.f
+	$(F77) $(FFLAGS) -c lowp.f
+	$(RF) $(RFLAGS) pfind.r > pfind.f
+	$(F77) $(FFLAGS) -c pfind.f
+	$(RF) $(RFLAGS) remove.r > remove.f
+	$(F77) $(FFLAGS) -c remove.f
+	$(RF) $(RFLAGS) confix.r > confix.f
+	$(F77) $(FFLAGS) -c confix.f
+	$(RF) $(RFLAGS) f45.r > f45.f
+	$(F77) $(FFLAGS) -c f45.f
+	$(RF) $(RFLAGS) f46.r > f46.f
+	$(F77) $(FFLAGS) -c f46.f
+	$(RF) $(RFLAGS) f47.r > f47.f
+	$(F77) $(FFLAGS) -c f47.f
+	$(RF) $(RFLAGS) featur.r > featur.f
+	$(F77) $(FFLAGS) -c featur.f
+	$(RF) $(RFLAGS) zstuf.r > zstuf.f
+	$(F77) $(FFLAGS) -c zstuf.f
+	$(RF) $(RFLAGS) zfirst.r > zfirst.f
+	$(F77) $(FFLAGS) -c zfirst.f
+	$(RF) $(RFLAGS) zfeat.r > zfeat.f
+	$(F77) $(FFLAGS) -c zfeat.f
+	$(RF) $(RFLAGS) should.r > should.f
+	$(F77) $(FFLAGS) -c should.f
+	$(RF) $(RFLAGS) spopen.r > spopen.f
+	$(F77) $(FFLAGS) -c spopen.f
+== fcn48-51/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) f48.r > f48.f
+	$(F77) $(FFLAGS) -c f48.f
+	$(RF) $(RFLAGS) tabpos.r > tabpos.f
+	$(F77) $(FFLAGS) -c tabpos.f
+	$(RF) $(RFLAGS) getcor.r > getcor.f
+	$(F77) $(FFLAGS) -c getcor.f
+	$(RF) $(RFLAGS) getpt.r > getpt.f
+	$(F77) $(FFLAGS) -c getpt.f
+	$(RF) $(RFLAGS) pltdat.r > pltdat.f
+	$(F77) $(FFLAGS) -c pltdat.f
+	$(RF) $(RFLAGS) pltxtx.r > pltxtx.f
+	$(F77) $(FFLAGS) -c pltxtx.f
+	$(RF) $(RFLAGS) f49.r > f49.f
+	$(F77) $(FFLAGS) -c f49.f
+	$(RF) $(RFLAGS) f49wav.r > f49wav.f
+	$(F77) $(FFLAGS) -c f49wav.f
+	$(RF) $(RFLAGS) f50.r > f50.f
+	$(F77) $(FFLAGS) -c f50.f
+	$(RF) $(RFLAGS) gcrd.r > gcrd.f
+	$(F77) $(FFLAGS) -c gcrd.f
+	$(RF) $(RFLAGS) gtfl.r > gtfl.f
+	$(F77) $(FFLAGS) -c gtfl.f
+	$(RF) $(RFLAGS) lngen.r > lngen.f
+	$(F77) $(FFLAGS) -c lngen.f
+	$(RF) $(RFLAGS) plot2.r > plot2.f
+	$(F77) $(FFLAGS) -c plot2.f
+== free/makefile
+	ld $(LFLAGS) -r -o $(SP_OBJ)/free.o $(OBJ)
+	$(RF) $(RFLAGS) copyin.r > copyin.f
+	$(F77) $(FFLAGS) -c copyin.f
+	$(RF) $(RFLAGS) crtin.r > crtin.f
+	$(F77) $(FFLAGS) -c crtin.f
+	$(RF) $(RFLAGS) decod1.r > decod1.f
+	$(F77) $(FFLAGS) -c decod1.f
+	$(RF) $(RFLAGS) getstr.r > getstr.f
+	$(F77) $(FFLAGS) -c getstr.f
+	$(SSPP) -r -$(SSPPFLAGS)  ihchar.r > ihchar.x
+	$(RF) $(RFLAGS) ihchar.x > ihchar.f
+	$(F77) $(FFLAGS) -c ihchar.f
+	$(RF) $(RFLAGS) list.r > list.f
+	$(F77) $(FFLAGS) -c list.f
+	$(RF) $(RFLAGS) prpixl.r > prpixl.f
+	$(F77) $(FFLAGS) -c prpixl.f
+	$(RF) $(RFLAGS) refile.r > refile.f
+	$(F77) $(FFLAGS) -c refile.f
+	$(RF) $(RFLAGS) rlchng.r > rlchng.f 
+	$(F77) $(FFLAGS) -c rlchng.f
+	$(RF) $(RFLAGS) typein.r > typein.f
+	$(F77) $(FFLAGS) -c typein.f
+	$(RF) $(RFLAGS) varsub.r > varsub.f
+	$(F77) $(FFLAGS) -c varsub.f
+	$(RF) $(RFLAGS) varpar.r > varpar.f
+	$(F77) $(FFLAGS) -c varpar.f
+	$(RF) $(RFLAGS) what.r > what.f
+	$(F77) $(FFLAGS) -c what.f
+	$(RF) $(RFLAGS) wjfren.r > wjfren.f
+	$(F77) $(FFLAGS) -c wjfren.f
+	$(RF) $(RFLAGS) xfer.r > xfer.f
+	$(F77) $(FFLAGS) -c xfer.f
+	$(RF) $(RFLAGS) allist.r > allist.f
+	$(F77) $(FFLAGS) -c allist.f
+	$(RF) $(RFLAGS) getkey.r > getkey.f
+	$(F77) $(FFLAGS) -c getkey.f
+	$(RF) $(RFLAGS) keytrn.r > keytrn.f
+	$(F77) $(FFLAGS) -c keytrn.f
+	$(RF) $(RFLAGS) setals.r > setals.f
+	$(F77) $(FFLAGS) -c setals.f
+	$(RF) $(RFLAGS) setkey.r > setkey.f
+	$(F77) $(FFLAGS) -c setkey.f
+	$(RF) $(RFLAGS) sphelp.r > sphelp.f
+	$(F77) $(FFLAGS) -c sphelp.f
+	$(RF) $(RFLAGS) cmdverbose.r > cmdverbose.f
+	$(F77) $(FFLAGS) -c cmdverbose.f
+	$(RF) $(RFLAGS) getiopconchar.r > getiopconchar.f
+	$(F77) $(FFLAGS) -c getiopconchar.f
+== gfit/change/makefile
+	ld $(GF2_LFLAGS) -r -o ../change.o $(OBJ)
+	$(RF) $(RFLAGS) chgest.r > chgest.f
+	$(F77) $(GF2_FFLAGS) -c chgest.f
+	$(RF) $(RFLAGS) chgfit.r > chgfit.f
+	$(F77) $(GL2_FFLAGS) -c chgfit.f
+	$(RF) $(RFLAGS) chgues.r > chgues.f
+	$(F77) $(GF2_FFLAGS) -c chgues.f
+== gfit/contrl/makefile
+	ld $(GF2_LFLAGS) -r -o ../contrl.o $(OBJ)
+	$(RF) $(RFLAGS) contrl.r > contrl.f
+	$(F77) $(GF2_FFLAGS) -c contrl.f
+	$(RF) $(RFLAGS) normal.r > normal.f
+	$(F77) $(GL2_FFLAGS) -c normal.f
+== gfit/fit/makefile
+	ld $(GF2_LFLAGS) -r -o ../fits.o $(OBJ)
+	$(RF) $(RFLAGS) bas1.r > bas1.f
+	$(F77) $(GF2_FFLAGS) -c bas1.f
+	$(RF) $(RFLAGS) f.r > f.f
+	$(F77) $(GL2_FFLAGS) -c f.f
+	$(RF) $(RFLAGS) matinv.r > matinv.f
+	$(F77) $(GF2_FFLAGS) -c matinv.f
+	$(RF) $(RFLAGS) fit.r > fit.f
+	$(F77) $(GF2_FLAGS) -c fit.f
+== gfit/io/makefile
+	ld $(GF2_LFLAGS) -r -o ../io.o $(OBJ)
+	$(RF) $(RFLAGS) rdspec.r > rdspec.f
+	$(F77) $(GF2_FFLAGS) -c rdspec.f
+	$(RF) $(RFLAGS) rdtitl.r > rdtitl.f
+	$(F77) $(GL2_FFLAGS) -c rdtitl.f
+	$(RF) $(RFLAGS) readhd.r > readhd.f
+	$(F77) $(GL2_FFLAGS) -c readhd.f
+	$(RF) $(RFLAGS) readsp.r > readsp.f
+	$(F77) $(GL2_FFLAGS) -c readsp.f
+	$(RF) $(RFLAGS) readwv.r > readwv.f
+	$(F77) $(GL2_FFLAGS) -c readwv.f
+	$(RF) $(RFLAGS) recall.r > recall.f
+	$(F77) $(GL2_FFLAGS) -c recall.f
+	$(RF) $(RFLAGS) writsp.r > writsp.f
+	$(F77) $(GL2_FFLAGS) -c writsp.f
+	$(RF) $(RFLAGS) wrtfit.r > wrtfit.f
+	$(F77) $(GL2_FFLAGS) -c wrtfit.f
+	$(RF) $(RFLAGS) wrtred.r > wrtred.f
+	$(F77) $(GL2_FFLAGS) -c wrtred.f
+== gfit/lib/makefile
+	ld $(GF2_LFLAGS) -r -o ../lib.o $(OBJ)
+	$(RF) $(RFLAGS) delpt.r > delpt.f
+	$(F77) $(GF2_FFLAGS) -c delpt.f
+	$(RF) $(RFLAGS) glist.r > glist.f
+	$(F77) $(GL2_FFLAGS) -c glist.f
+	$(RF) $(RFLAGS) gpar.r > gpar.f
+	$(F77) $(GL2_FFLAGS) -c gpar.f
+	$(RF) $(RFLAGS) pgaus.r > pgaus.f
+	$(F77) $(GL2_FFLAGS) -c pgaus.f
+	$(RF) $(RFLAGS) prtfit.r > prtfit.f
+	$(F77) $(GL2_FFLAGS) -c prtfit.f
+	$(RF) $(RFLAGS) ptdel.r > ptdel.f
+	$(F77) $(GL2_FFLAGS) -c ptdel.f
+	$(RF) $(RFLAGS) save.r > save.f
+	$(F77) $(GL2_FFLAGS) -c save.f
+	$(RF) $(RFLAGS) send.r > send.f
+	$(F77) $(GL2_FFLAGS) -c send.f
+	$(RF) $(RFLAGS) shuffl.r > shuffl.f
+	$(F77) $(GL2_FFLAGS) -c shuffl.f
+	$(RF) $(RFLAGS) step.r > step.f
+	$(F77) $(GL2_FFLAGS) -c step.f
+	$(RF) $(RFLAGS) gswap.r > gswap.f
+	$(F77) $(GL2_FFLAGS) -c gswap.f
+	$(RF) $(RFLAGS) upprot.r > upprot.f
+	$(F77) $(GL2_FFLAGS) -c upprot.f
+== gfit/main/makefile
+	$(RF) $(RFLAGS) gfit.r > gfit.f
+	$(F77) $(GF2_FFLAGS) -c gfit.f
+== gfit/makefile
+	$(F77) $(GF1_LFLAGS) $(LDFLAGS) -o gfit $(LIBS) main/gfit.o $(LDLIBS) plot.o $(SP_LIB)/specpr.a $(LIBPW)
+	$(F77) $(GF1_LFLAGS) $(LDFLAGS) -o fits $(LIBS) fit/fit.o $(LDLIBS) contrl.o $(SP_LIB)/specpr.a $(LIBPW)
+== gfit/plot/makefile
+	ld $(GF2_LFLAGS) -r -o ../plot.o $(OBJ)
+	$(RF) $(RFLAGS) gfplot.r > gfplot.f
+	$(F77) $(GF2_FFLAGS) -c gfplot.f
+	$(RF) $(RFLAGS) plot.r > plot.f
+	$(F77) $(GL2_FFLAGS) -c plot.f
+	$(RF) $(RFLAGS) ptplot.r > ptplot.f
+	$(F77) $(GL2_FFLAGS) -c ptplot.f
+	$(RF) $(RFLAGS) scale.r > scale.f
+	$(F77) $(GL2_FFLAGS) -c scale.f
+	$(RF) $(RFLAGS) xplta.r > xplta.f
+	$(F77) $(GL2_FFLAGS) -c xplta.f
+== gfit/rstart/makefile
+	ld $(GF2_LFLAGS) -r -o ../rstart.o $(OBJ)
+	$(RF) $(RFLAGS) gstart.r > gstart.f
+	$(F77) $(GF2_FFLAGS) -c gstart.f
+	$(RF) $(RFLAGS) transfer.r > transfer.f
+	$(F77) $(GL2_FFLAGS) -c transfer.f
+	$(RF) $(RFLAGS) grstart.r > grstart.f
+	$(F77) $(GL2_FFLAGS) -c grstart.f
+== gould/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) axis.r > axis.f
+	$(F77) $(FFLAGS) -c axis.f
+	$(RF) $(RFLAGS) catn.r > catn.f
+	$(F77) $(FFLAGS) -c catn.f
+	$(RF) $(RFLAGS) centim.r > centim.f
+	$(F77) $(FFLAGS) -c centim.f
+	$(RF) $(RFLAGS) curves.r > curves.f
+	$(F77) $(FFLAGS) -c curves.f
+	$(RF) $(RFLAGS) done.r > done.f
+	$(F77) $(FFLAGS) -c done.f
+	$(RF) $(RFLAGS) fnb.r > fnb.f
+	$(F77) $(FFLAGS) -c fnb.f
+	$(RF) $(RFLAGS) grid.r > grid.f
+	$(F77) $(FFLAGS) -c grid.f
+	$(RF) $(RFLAGS) line.r > line.f
+	$(F77) $(FFLAGS) -c line.f
+	$(RF) $(RFLAGS) lnb.r > lnb.f
+	$(F77) $(FFLAGS) -c lnb.f
+	$(RF) $(RFLAGS) iopenp.r > iopenp.f
+	$(F77) $(FFLAGS) -c iopenp.f
+	$(RF) $(RFLAGS) pltsym.r > pltsym.f
+	$(F77) $(FFLAGS) -c pltsym.f
+	$(RF) $(RFLAGS) point.r > point.f
+	$(F77) $(FFLAGS) -c point.f
+	$(RF) $(RFLAGS) range.r > range.f
+	$(F77) $(FFLAGS) -c range.f
+	$(RF) $(RFLAGS) round.r > round.f
+	$(F77) $(FFLAGS) -c round.f
+	$(RF) $(RFLAGS) setup.r > setup.f
+	$(F77) $(FFLAGS) -c setup.f
+	$(RF) $(RFLAGS) snorm.r > snorm.f
+	$(F77) $(FFLAGS) -c snorm.f
+	$(RF) $(RFLAGS) swap.r > swap.f
+	$(F77) $(FFLAGS) -c swap.f
+	$(RF) $(RFLAGS) symbol.r > symbol.f
+	$(F77) $(FFLAGS) -c symbol.f
+	$(RF) $(RFLAGS) tname.r > tname.f
+	$(F77) $(FFLAGS) -c tname.f
+	$(RF) $(RFLAGS) tocent.r > tocent.f
+	$(F77) $(FFLAGS) -c tocent.f
+== hed/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) chgin1.r > chgin1.f
+	$(F77) $(FFLAGS) -c chgin1.f
+	$(RF) $(RFLAGS) chgin2.r > chgin2.f
+	$(F77) $(FFLAGS) -c chgin2.f
+	$(RF) $(RFLAGS) chgin3.r > chgin3.f
+	$(F77) $(FFLAGS) -c chgin3.f
+	$(RF) $(RFLAGS) chgin4.r > chgin4.f
+	$(F77) $(FFLAGS) -c chgin4.f
+	$(RF) $(RFLAGS) chginf.r > chginf.f
+	$(F77) $(FFLAGS) -c chginf.f
+	$(RF) $(RFLAGS) chgtxt.r > chgtxt.f
+	$(F77) $(FFLAGS) -c chgtxt.f
+	$(RF) $(RFLAGS) chinfo.r > chinfo.f
+	$(F77) $(FFLAGS) -c chinfo.f
+	$(RF) $(RFLAGS) dtchng.r > dtchng.f
+	$(F77) $(FFLAGS) -c dtchng.f
+	$(RF) $(RFLAGS) getang.r > getang.f
+	$(F77) $(FFLAGS) -c getang.f
+	$(RF) $(RFLAGS) getdt.r > getdt.f
+	$(F77) $(FFLAGS) -c getdt.f
+	$(RF) $(RFLAGS) getime.r > getime.f
+	$(F77) $(FFLAGS) -c getime.f
+	$(RF) $(RFLAGS) initdt.r > initdt.f
+	$(F77) $(FFLAGS) -c initdt.f
+	$(RF) $(RFLAGS) intchg.r > intchg.f
+	$(F77) $(FFLAGS) -c intchg.f
+	$(RF) $(RFLAGS) redtxt.r > redtxt.f
+	$(F77) $(FFLAGS) -c redtxt.f
+	$(RF) $(RFLAGS) scrn00.r > scrn00.f
+	$(F77) $(FFLAGS) -c scrn00.f
+	$(RF) $(RFLAGS) scrn01.r > scrn01.f
+	$(F77) $(FFLAGS) -c scrn01.f
+	$(RF) $(RFLAGS) scrn02.r > scrn02.f
+	$(F77) $(FFLAGS) -c scrn02.f
+	$(RF) $(RFLAGS) scrn03.r > scrn03.f
+	$(F77) $(FFLAGS) -c scrn03.f
+	$(RF) $(RFLAGS) timchg.r > timchg.f
+	$(F77) $(FFLAGS) -c timchg.f
+== hpgraph/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) absbin.r > absbin.f
+	$(F77) $(FFLAGS) -c absbin.f
+	$(RF) $(RFLAGS) convrt.r > convrt.f
+	$(F77) $(FFLAGS) -c convrt.f
+	$(SSPP) -r -$(SSPPFLAGS)  drwabs.r > drwabs.x
+	$(RF) $(RFLAGS) drwabs.x > drwabs.f
+	$(F77) $(FFLAGS) -c drwabs.f
+	$(RF) $(RFLAGS) eralph.r > eralph.f
+	$(F77) $(FFLAGS) -c eralph.f
+	$(RF) $(RFLAGS) hbell.r > hbell.f
+	$(F77) $(FFLAGS) -c hbell.f
+	$(SSPP) -r -$(SSPPFLAGS) hpabs.r > hpabs.x
+	$(RF) $(RFLAGS) hpabs.x > hpabs.f
+	$(F77) $(FFLAGS) -c hpabs.f
+	$(RF) $(RFLAGS) hpline.r > hpline.f
+	$(F77) $(FFLAGS) -c hpline.f
+	$(RF) $(RFLAGS) hpplot.r > hpplot.f
+	$(F77) $(FFLAGS) -c hpplot.f
+	$(RF) $(RFLAGS) hreset.r > hreset.f
+	$(F77) $(FFLAGS) -c hreset.f
+	$(SSPP) -r -$(SSPPFLAGS)  initt.r >initt.x
+	$(RF) $(RFLAGS) initt.x > initt.f
+	$(F77) $(FFLAGS) -c initt.f
+	$(RF) $(RFLAGS) movabs.r > movabs.f
+	$(F77) $(FFLAGS) -c movabs.f
+	$(RF) $(RFLAGS) newpag.r > newpag.f
+	$(F77) $(FFLAGS) -c newpag.f
+	$(RF) $(RFLAGS) othtrm.r > othtrm.f
+	$(F77) $(FFLAGS) -c othtrm.f
+	$(SSPP) -r -$(SSPPFLAGS) respag.r >respag.x
+	$(RF) $(RFLAGS) respag.x > respag.f
+	$(F77) $(FFLAGS) -c respag.f
+	$(SSPP) -r -$(SSPPFLAGS)  sb.r >sb.x
+	$(RF) $(RFLAGS) sb.x > sb.f
+	$(F77) $(FFLAGS) -c sb.f
+	$(SSPP) -r -$(SSPPFLAGS)  serase.r >serase.x
+	$(RF) $(RFLAGS) serase.x > serase.f
+	$(F77) $(FFLAGS) -c serase.f
+	$(RF) $(RFLAGS) tabbin.r > tabbin.f
+	$(F77) $(FFLAGS) -c tabbin.f
+	$(RF) $(RFLAGS) texmod.r > texmod.f
+	$(F77) $(FFLAGS) -c texmod.f
+	$(RF) $(RFLAGS) tmove.r > tmove.f
+	$(F77) $(FFLAGS) -c tmove.f
+	$(RF) $(RFLAGS) vgrmod.r > vgrmod.f
+	$(F77) $(FFLAGS) -c vgrmod.f
+	$(RF) $(RFLAGS) gwrite.r > gwrite.f
+	$(F77) $(FFLAGS) -c gwrite.f
+	$(RF) $(RFLAGS) hptest.r > hptest.f
+	$(F77) $(FFLAGS) hptest.f $(OBJ) ../syslib/fsleep.o \
+== init/makefile
+	ld $(LFLAGS) -r -o $(SP_OBJ)/init.o $(OBJ)
+	$(RF) $(RFLAGS) namef.r > namef.f
+	$(F77) $(FFLAGS) -c namef.f
+	$(RF) $(RFLAGS) wdgsb1.r > wdgsb1.f
+	$(F77) $(FFLAGS) -c wdgsb1.f
+	$(RF) $(RFLAGS) wdgsb2.r > wdgsb2.f
+	$(F77) $(FFLAGS) -c wdgsb2.f
+	$(RF) $(RFLAGS) wdgsb3.r > wdgsb3.f
+	$(F77) $(FFLAGS) -c wdgsb3.f
+	$(RF) $(RFLAGS) wdgsb4.r > wdgsb4.f
+	$(F77) $(FFLAGS) -c wdgsb4.f
+	$(RF) $(RFLAGS) wdgsb5.r > wdgsb5.f
+	$(F77) $(FFLAGS) -c wdgsb5.f
+	$(RF) $(RFLAGS) wedgea.r > wedgea.f
+	$(F77) $(FFLAGS) -c wedgea.f
+== interbandanl/makefile
+	$(RF) $(RFLAGS) bdanal.r > bdanal.f
+	$(F77) $(FFLAGS) -c bdanal.f
+	$(RF) $(RFLAGS) box.r > box.f
+	$(F77) $(FFLAGS)  -c box.f
+	$(RF) $(RFLAGS) opfile.r > opfile.f
+	$(F77) $(FFLAGS) -c opfile.f
+	$(RF) $(RFLAGS) getpos.r > getpos.f
+	$(F77) $(FFLAGS)  -c getpos.f
+	$(RF) $(RFLAGS) bcchan.r > bcchan.f
+	$(F77) $(FFLAGS)  -c bcchan.f
+	$(RF) $(RFLAGS) dconvt.r > dconvt.f
+	$(F77) $(FFLAGS) -c dconvt.f
+	$(RF) $(RFLAGS) gconvt.r > gconvt.f
+	$(F77) $(FFLAGS) -c gconvt.f
+	$(RF) $(RFLAGS) quad.r > quad.f
+	$(F77) $(FFLAGS)  -c quad.f
+	$(RF) $(RFLAGS) findrf.r > findrf.f
+	$(F77) $(FFLAGS)  -c findrf.f
+	$(RF) $(RFLAGS) findwd.r > findwd.f
+	$(F77) $(FFLAGS)  -c findwd.f
+	$(RF) $(RFLAGS) sfwhm.r > sfwhm.f
+	$(F77) $(FFLAGS)  -c sfwhm.f
+	$(RF) $(RFLAGS) mindat.r > mindat.f
+	$(F77) $(FFLAGS)  -c mindat.f
+	$(RF) $(RFLAGS) restab.r > restab.f
+	$(F77) $(FFLAGS)  -c restab.f
+	$(RF) $(RFLAGS) replot.r > replot.f
+	$(F77) $(FFLAGS) -c replot.f
+	$(RF) $(RFLAGS) rbline.r > rbline.f
+	$(F77) $(FFLAGS) -c rbline.f
+== io/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) closnr.r > closnr.f
+	$(F77) $(FFLAGS) -c closnr.f
+	$(RF) $(RFLAGS) bytorder.r > bytorder.f
+	$(F77) $(FFLAGS) -c bytorder.f
+	$(CC) $(CFLAGS) -c swab4order.c
+	$(RF) $(RFLAGS) lundev.r > lundev.f
+	$(F77) $(FFLAGS) -c lundev.f
+	$(RF) $(RFLAGS) devlun.r > devlun.f
+	$(F77) $(FFLAGS) -c devlun.f
+	$(RF) $(RFLAGS) devok.r > devok.f
+	$(F77) $(FFLAGS) -c devok.f
+	$(RF) $(RFLAGS) devol.r > devol.f
+	$(F77) $(FFLAGS) -c devol.f
+	$(RF) $(RFLAGS) devsta.r > devsta.f
+	$(F77) $(FFLAGS) -c devsta.f
+	$(RF) $(RFLAGS) erored.r > erored.f
+	$(F77) $(FFLAGS) -c erored.f
+	$(RF) $(RFLAGS) ertyp.r > ertyp.f
+	$(F77) $(FFLAGS) -c ertyp.f
+	$(RF) $(RFLAGS) finfil.r > finfil.f
+	$(F77) $(FFLAGS) -c finfil.f
+	$(RF) $(RFLAGS) newsta.r > newsta.f
+	$(F77) $(FFLAGS) -c newsta.f
+	$(RF) $(RFLAGS) posfil.r > posfil.f
+	$(F77) $(FFLAGS) -c posfil.f
+	$(RF) $(RFLAGS) reastr.r > reastr.f
+	$(F77) $(FFLAGS) -c reastr.f
+	$(RF) $(RFLAGS) rederr.r > rederr.f
+	$(F77) $(FFLAGS) -c rederr.f
+	$(SSPP) -r -$(SSPPFLAGS) redfil.r > redfil.x
+	$(RF) $(RFLAGS) redfil.x > redfil.f
+	$(F77) $(FFLAGS) -c redfil.f
+	$(SSPP) -r -$(SSPPFLAGS) wrifil.r > wrifil.x
+	$(RF) $(RFLAGS) wrifil.x > wrifil.f
+	$(F77) $(FFLAGS) -c wrifil.f
+	$(RF) $(RFLAGS) wristr.r > wristr.f
+	$(F77) $(FFLAGS) -c wristr.f
+	$(CC) $(CFLAGS) -c fpt2v.c
+	$(CC) $(CFLAGS) -c fpv2t.c
+	$(RF) $(RFLAGS) xfti.r > xfti.f
+	$(F77) $(FFLAGS) -c xfti.f
+	$(RF) $(RFLAGS) x2ti.r > x2ti.f
+	$(F77) $(FFLAGS) -c x2ti.f
+	$(RF) $(RFLAGS) pad.r > pad.f
+	$(F77) $(FFLAGS) -c pad.f
+	cc  $(CFLAGS) -c swap.c
+== lib/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) dumpspool.r > dumpspool.f
+	$(F77) $(FFLAGS) -c dumpspool.f
+	$(RF) $(RFLAGS) endnam.r > endnam.f
+	$(F77) $(FFLAGS) -c endnam.f
+	$(RF) $(RFLAGS) filid.r > filid.f
+	$(F77) $(FFLAGS) -c filid.f
+	$(RF) $(RFLAGS) lpcrtp.r > lpcrtp.f
+	$(F77) $(FFLAGS) -c lpcrtp.f
+	$(RF) $(RFLAGS) lprpct.r > lprpct.f
+	$(F77) $(FFLAGS) -c lprpct.f
+	$(RF) $(RFLAGS) pdata.r > pdata.f
+	$(F77) $(FFLAGS) -c pdata.f
+	$(RF) $(RFLAGS) plpage.r > plpage.f
+	$(F77) $(FFLAGS) -c plpage.f
+	$(RF) $(RFLAGS) setspool.r > setspool.f
+	$(F77) $(FFLAGS) -c setspool.f
+	$(RF) $(RFLAGS) unglic.r > unglic.f
+	$(F77) $(FFLAGS) -c unglic.f
+	$(RF) $(RFLAGS) whedr.r > whedr.f
+	$(F77) $(FFLAGS) -c whedr.f
+	$(RF) $(RFLAGS) dltpts.r > dltpts.f
+	$(F77) $(FFLAGS) -c dltpts.f
+	$(RF) $(RFLAGS) whedr2.r > whedr2.f
+	$(F77) $(FFLAGS) -c whedr2.f
+	$(RF) $(RFLAGS) crindex.r > crindex.f
+	$(F77) $(FFLAGS) -c crindex.f
+	$(RF) $(RFLAGS) frjuld.r > frjuld.f
+	$(F77) $(FFLAGS) -c frjuld.f
+	$(RF) $(RFLAGS) frdms.r > frdms.f
+	$(F77) $(FFLAGS) -c frdms.f
+	$(RF) $(RFLAGS) todms.r > todms.f
+	$(F77) $(FFLAGS) -c todms.f
+	$(RF) $(RFLAGS) tojuld.r > tojuld.f
+	$(F77) $(FFLAGS) -c tojuld.f
+	$(RF) $(RFLAGS) jdatim.r > jdatim.f
+	$(F77) $(FFLAGS) -c jdatim.f
+	$(RF) $(RFLAGS) sptime.r > sptime.f
+	$(F77) $(FFLAGS) -c sptime.f
+	$(RF) $(RFLAGS) sptimb.r > sptimb.f
+	$(F77) $(FFLAGS) -c sptimb.f
+== main/makefile
+	ld $(LFLAGS) -r -o $@  $(OBJ)
+	$(SSPP) -r -$(SSPPFLAGS) specpr.r > specpr.x
+	$(RF) $(RFLAGS) specpr.x > specpr.f
+	$(F77) $(FFLAGS) -c specpr.f
+	$(RF) $(RFLAGS) closef.r > closef.f
+	$(F77) $(FFLAGS) -c closef.f
+	$(RF) $(RFLAGS) callgfit.r > callgfit.f
+	$(F77) $(FFLAGS) -c callgfit.f
+	$(SSPP) -r -$(SSPPFLAGS) getcmdargs.r > getcmdargs.x
+	$(RF) $(RFLAGS) getcmdargs.x > getcmdargs.f
+	$(F77) $(FFLAGS) -c getcmdargs.f
+	$(RF) $(RFLAGS) mninst.r > mninst.f
+	$(F77) $(FFLAGS) -c mninst.f
+	$(RF) $(RFLAGS) prochk.r > prochk.f
+	$(F77) $(FFLAGS) -c prochk.f
+	$(RF) $(RFLAGS) reddisv.r > reddisv.f
+	$(F77) $(FFLAGS) -c reddisv.f
+	$(RF) $(RFLAGS) taprw.r > taprw.f
+	$(F77) $(FFLAGS) -c taprw.f
+	$(RF) $(RFLAGS) e1trap.r > e1trap.f
+	$(F77) $(FFLAGS) -c e1trap.f
+== makefile
+	$(F77) $(FFLAGS) $(LDFLAGS) -o xdspecpr main/specpr.o \
+	$(AR) $(ARFLAGS) $(SP_LIB)/specpr.a $(SP_OBJ)/common.o $(OBJ)
+	$(AR) $(ARFLAGS) $(SP_LIB)/specpr.a $(SP_OBJ)/common.o $(OBJ)
+	$(F77) $(FFLAGS) $(LDFLAGS) -o xdspecpr main/specpr.o $(SP_OBJ)/common.o \
+		$(F77) $(FFLAGS) $(LDFLAGS) -o xdspecpr main/specpr.o \
+== mth1/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) mthwrt.r > mthwrt.f
+	$(F77) $(FFLAGS) -c mthwrt.f
+	$(RF) $(RFLAGS) opdcod.r > opdcod.f
+	$(F77) $(FFLAGS) -c opdcod.f
+	$(RF) $(RFLAGS) redwg2.r > redwg2.f
+	$(F77) $(FFLAGS) -c redwg2.f
+	$(RF) $(RFLAGS) gettok.r > gettok.f
+	$(F77) $(FFLAGS) -c gettok.f
+	$(RF) $(RFLAGS) itoa.r > itoa.f
+	$(F77) $(FFLAGS) -c itoa.f
+	$(RF) $(RFLAGS) type.r > type.f
+	$(F77) $(FFLAGS) -c type.f
+	$(RF) $(RFLAGS) alias.r > alias.f
+	$(F77) $(FFLAGS) -c alias.f
+== mth2/makefile
+	ld $(LFLAGS) -r -o $@  $(OBJ)
+	$(RF) $(RFLAGS) ercomp.r > ercomp.f
+	$(F77) $(FFLAGS) -c ercomp.f
+	$(RF) $(RFLAGS) mathin.r > mathin.f
+	$(F77) $(FFLAGS) -c mathin.f
+	$(RF) $(RFLAGS) namdev.r > namdev.f
+	$(F77) $(FFLAGS) -c namdev.f
+	$(RF) $(RFLAGS) nwav.r > nwav.f
+	$(F77) $(FFLAGS) -c nwav.f
+	$(RF) $(RFLAGS) titles.r > titles.f
+	$(F77) $(FFLAGS) -c titles.f
+	$(RF) $(RFLAGS) whistr.r > whistr.f
+	$(F77) $(FFLAGS) -c whistr.f
+== newplot/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) bldplt.r > bldplt.f
+	$(F77) $(FFLAGS) -c bldplt.f
+	$(RF) $(RFLAGS) gbldel.r > gbldel.f
+	$(F77) $(FFLAGS) -c gbldel.f
+	$(RF) $(RFLAGS) getplt.r > getplt.f
+	$(F77) $(FFLAGS) -c getplt.f
+	$(RF) $(RFLAGS) gettxt.r > gettxt.f
+	$(F77) $(FFLAGS) -c gettxt.f
+	$(RF) $(RFLAGS) gpplot.r > gpplot.f
+	$(F77) $(FFLAGS) -c gpplot.f
+	$(RF) $(RFLAGS) gtrecs.r > gtrecs.f
+	$(F77) $(FFLAGS) -c gtrecs.f
+	$(RF) $(RFLAGS) haxis.r > haxis.f
+	$(F77) $(FFLAGS) -c haxis.f
+	$(RF) $(RFLAGS) options.r > options.f
+	$(F77) $(FFLAGS) -c options.f
+	$(RF) $(RFLAGS) savdta.r > savdta.f
+	$(F77) $(FFLAGS) -c savdta.f
+	$(RF) $(RFLAGS) sclfct.r > sclfct.f
+	$(F77) $(FFLAGS) -c sclfct.f
+	$(RF) $(RFLAGS) spinit.r > spinit.f
+	$(F77) $(FFLAGS) -c spinit.f
+	$(RF) $(RFLAGS) setwav.r > setwav.f
+	$(F77) $(FFLAGS) -c setwav.f
+	$(RF) $(RFLAGS) doplot.r > doplot.f
+	$(F77) $(FFLAGS) -c doplot.f
+	$(RF) $(RFLAGS) vaxis.r > vaxis.f
+	$(F77) $(FFLAGS) -c vaxis.f
+== parser/makefile
+#	ld ${LFLAGS} -r -o $@ ${OBJ} 
+	$(F77) $(FFLAGS) -c f23temp.f
+	$(RF) $(RFLAGS) f23.r > f23.f
+	$(F77) $(FFLAGS) -c f23.f
+	$(CC) $(CFLAGS) -c io.c
+	$(CC) $(CFLAGS) -c math.c
+	$(CC) $(CFLAGS) -c history.c
+	$(CC) $(CFLAGS) -c parser.c
+	$(LEX) $(LFLAGS) $(SP_TMP)/lex.l
+	$(YACC) $(YFLAGS) gram.y
+== plotdaemon/makefile
+	cc $(CFLAGS) -o $@ $(OBJ)
+	cc $(CFLAGS) -c finishplt.c
+	cc $(CFLAGS) -c finishup.c
+	cc $(CFLAGS) -c initplot.c
+	cc $(CFLAGS) -c logerr.c
+	cc $(CFLAGS) -c main.c
+	cc $(CFLAGS) -c openargs.c
+	cc $(CFLAGS) -c plotem.c
+	cc $(CFLAGS) -c stuff.c
+== rst/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) rstdmp.r > rstdmp.f
+	$(F77) $(FFLAGS) -c rstdmp.f
+	$(RF) $(RFLAGS) rstart.r > rstart.f
+	$(F77) $(FFLAGS) -c rstart.f
+== sub/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) radec.r > radec.f
+	$(F77) $(FFLAGS) -c radec.f
+	$(RF) $(RFLAGS) runsb1.r > runsb1.f
+	$(F77) $(FFLAGS) -c runsb1.f
+	$(RF) $(RFLAGS) runsub.r > runsub.f
+	$(F77) $(FFLAGS) -c runsub.f
+== syshpux/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(F77) $(FFLAGS) -c iargc.f
+	$(F77) $(FFLAGS) -c getarg.f
+	cc $(CFLAGS) -c nowreading.c
+	cc $(CFLAGS) -c nowwriting.c
+	cc $(CFLAGS) -c units.c
+	cc $(CFLAGS) -c re_exec.c
+== syslib/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(CC) $(CFLAGS) -c ilink.c
+	$(CC) $(CFLAGS) -c fsleep.c
+	$(CC) $(CFLAGS) -DRANDRET=$(RANDRET) -c frandom.c
+	$(CC) $(CFLAGS) -c time.c
+	$(CC) $(CFLAGS) -c iulink.c
+	$(CC) $(CFLAGS) -c fsize.c
+	$(CC) $(CFLAGS) -c fcuser.c
+	$(RF) $(RFLAGS) fuser.r > fuser.f
+	$(F77) $(FFLAGS) -c fuser.f
+	$(RF) $(RFLAGS) iwrite.r > iwrite.f
+	$(F77) $(FFLAGS) -c iwrite.f
+	$(CC) $(CFLAGS) -c iread.c 
+	$(CC) $(CFLAGS) -c bkrec.c
+	$(CC) $(CFLAGS) -c frdrec.c
+	$(CC) $(CFLAGS) -c rewinf.c
+	$(CC) $(CFLAGS) -c wrttap.c
+	$(CC) $(CFLAGS) -c redtap.c
+	$(CC) $(CFLAGS) -c getpid.c
+	$(CC) $(CFLAGS) -c setbit.c
+	$(CC) $(CFLAGS) -c clrbit.c
+	$(CC) $(CFLAGS) -c chkbit.c
+	$(CC) $(CFLAGS) -c chkendian.c
+	$(CC) $(CFLAGS) -c ixdate.c
+== syslib/SRC.LINUX.kludge/makefile
+CFLAGS= -g
+FFLAGS= -g -C
+LFLAGS=
+RFLAGS= -6% -C
+GFLAGS=
+	$(CC) $(CFLAGS) -c -o ../bkrec.o bkrec.c
+	$(CC) $(CFLAGS) -c -o ../frdrec.o frdrec.c
+	$(CC) $(CFLAGS) -c -o ../wrttap.o wrttap.c
+	$(CC) $(CFLAGS) -c -o ../redtap.o redtap.c
+== syslib/SRC.HPUX.kludge/makefile
+CFLAGS= -g
+FFLAGS= -g -C
+LFLAGS=
+RFLAGS= -6% -C
+GFLAGS=
+	$(CC) $(CFLAGS) -c -o ../bkrec.o bkrec.c
+	$(CC) $(CFLAGS) -c -o ../frdrec.o frdrec.c
+	$(CC) $(CFLAGS) -c -o ../wrttap.o wrttap.c
+	$(CC) $(CFLAGS) -c -o ../redtap.o redtap.c
+== syslib/SRC.SOLARIS.kludge/makefile
+CFLAGS= -g
+FFLAGS= -g -C
+LFLAGS=
+RFLAGS= -6% -C
+GFLAGS=
+	$(CC) $(CFLAGS) -c -o ../bkrec.o bkrec.c
+	$(CC) $(CFLAGS) -c -o ../frdrec.o frdrec.c
+	$(CC) $(CFLAGS) -c -o ../wrttap.o wrttap.c
+	$(CC) $(CFLAGS) -c -o ../redtap.o redtap.c
+== syslib/SRC.OTHER.kludge/makefile
+CFLAGS= -g
+FFLAGS= -g -C
+LFLAGS=
+RFLAGS= -6% -C
+GFLAGS=
+	$(CC) $(CFLAGS) -c -o dummy.o dummy.c
+== syslib/.makefile.other.swp
+	  í  ì  Ø  »  º  ¦  ‰  ˆ  t  W  V  B  %  $    ó  ò  Þ  Á  À  ­      Ž                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  	$(CC) $(CFLAGS) -c ixdate.c ixdate.o:	ixdate.c  	$(CC) $(CFLAGS) -c chkbit.c chkbit.o:		chkbit.c  	$(CC) $(CFLAGS) -c clrbit.c clrbit.o:		clrbit.c  	$(CC) $(CFLAGS) -c setbit.c setbit.o:		setbit.c  	$(CC) $(CFLAGS) -c getpid.c getpid.o:		getpid.c  	$(CC) $(CFLAGS) -c redtap.c redtap.o:		redtap.c  	$(CC) $(CFLAGS) -c wrttap.c wrttap.o:		wrttap.c  	$(CC) $(CFLAGS) -c rewinf.c rewinf.o:		rewinf.c  	$(CC) $(CFLAGS) -c frdrec.c frdrec.o:		frdrec.c  	$(CC) $(CFLAGS) -c bkrec.c bkrec.o:		bkrec.c  	$(CC) $(CFLAGS) -c iread.c  iread.o:		iread.c  	rm -f iwrite.f 	$(F77) $(FFLAGS) -c iwrite.f 	$(RF) $(RFLAGS) iwrite.r > iwrite.f iwrite.o:		iwrite.r  	rm -f fuser.f 	$(F77) $(FFLAGS) -c fuser.f 	$(RF) $(RFLAGS) fuser.r > fuser.f fuser.o:		fuser.r  	$(CC) $(CFLAGS) -c fcuser.c fcuser.o:		fcuser.c  	$(CC) $(CFLAGS) -c fsize.c fsize.o:		fsize.c  	$(CC) $(CFLAGS) -c iulink.c iulink.o:		iulink.c  	$(CC) $(CFLAGS) -c time.c time.o:		time.c  	$(CC) $(CFLAGS) -DRANDRET=$(RANDRET) -c frandom.c frandom.o:	frandom.c  	$(CC) $(CFLAGS) -c fsleep.c fsleep.o:	fsleep.c  	$(CC) $(CFLAGS) -c ilink.c ilink.o:		ilink.c 	 .SUFFIXES: .o .c .SUFFIXES:   #	ld $(LFLAGS) -r -o $@ $(OBJ) #	(cd (SRC.SOLARIS.kludge; rmo ; make #$(SP_OBJ)/syslib.o:	$(OBJ) ######################################################################### ##### do the following on Solaris (instad of the above) #	ld $(LFLAGS) -r -o $@ $(OBJ) #	(cd SRC.LINUX.kludge ; rmo ; make)  #$(SP_OBJ)/syslib.o:	$(OBJ)	 ######################################################################### ##### do the following on Linux (insted of the above) #	ld $(LFLAGS) -r -o $@ $(OBJ) #	(cd SRC.HPUX.kludge ; rmo ; make)  #$(SP_OBJ)/syslib.o:	$(OBJ)	 ######################################################################### ##### do the following on HPUX S800, S700 machines (instead of the above)  	ld $(LFLAGS) -r -o $@ $(OBJ) $(SP_OBJ)/syslib.o:	$(OBJ)	   frandom.o ixdate.o	\ fuser.o		\ fcuser.o	\ chkbit.o	\ clrbit.o	\ setbit.o	\ getpid.o	\ redtap.o	\ wrttap.o	\ rewinf.o	\ frdrec.o	\ bkrec.o \ iread.o	\ iwrite.o	\ fsize.o \ iulink.o  \ time.o 	\ fsleep.o 	\ ilink.o 	\ OBJ=	\  SHELL=/bin/sh  # @(#) makefile 2.9@(#) 
+== syslib/makefile.save
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(CC) $(CFLAGS) -c ilink.c
+	$(CC) $(CFLAGS) -c fsleep.c
+	$(CC) $(CFLAGS) -DRANDRET=$(RANDRET) -c frandom.c
+	$(CC) $(CFLAGS) -c time.c
+	$(CC) $(CFLAGS) -c iulink.c
+	$(CC) $(CFLAGS) -c fsize.c
+	$(CC) $(CFLAGS) -c fcuser.c
+	$(RF) $(RFLAGS) fuser.r > fuser.f
+	$(F77) $(FFLAGS) -c fuser.f
+	$(RF) $(RFLAGS) iwrite.r > iwrite.f
+	$(F77) $(FFLAGS) -c iwrite.f
+	$(CC) $(CFLAGS) -c iread.c 
+	$(CC) $(CFLAGS) -c bkrec.c
+	$(CC) $(CFLAGS) -c frdrec.c
+	$(CC) $(CFLAGS) -c rewinf.c
+	$(CC) $(CFLAGS) -c wrttap.c
+	$(CC) $(CFLAGS) -c redtap.c
+	$(CC) $(CFLAGS) -c getpid.c
+	$(CC) $(CFLAGS) -c setbit.c
+	$(CC) $(CFLAGS) -c clrbit.c
+	$(CC) $(CFLAGS) -c chkbit.c
+	$(CC) $(CFLAGS) -c ixdate.c
+== syslinux/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	cc $(CFLAGS) -c re_exec.c
+	f77 $(FFLAGS) -c recomp.f
+	cc $(CFLAGS) -c units.c
+== syssun/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	cc $(CFLAGS) -c units.c
+== talg/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) fnalg.r > fnalg.f
+	$(F77) $(FFLAGS) -c fnalg.f
+	$(RF) $(RFLAGS) fnhist.r > fnhist.f
+	$(F77) $(FFLAGS) -c fnhist.f
+	$(RF) $(RFLAGS) fnhypt.r > fnhypt.f
+	$(F77) $(FFLAGS) -c fnhypt.f
+	$(RF) $(RFLAGS) fnlgs.r > fnlgs.f
+	$(F77) $(FFLAGS) -c fnlgs.f
+	$(RF) $(RFLAGS) fnpowr.r > fnpowr.f
+	$(F77) $(FFLAGS) -c fnpowr.f
+	$(RF) $(RFLAGS) fntrig.r > fntrig.f
+	$(F77) $(FFLAGS) -c fntrig.f
+	$(RF) $(RFLAGS) wfcn.r > wfcn.f
+	$(F77) $(FFLAGS) -c wfcn.f
+	$(RF) $(RFLAGS) wfcn1.r > wfcn1.f
+	$(F77) $(FFLAGS) -c wfcn1.f
+== wav/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(RF) $(RFLAGS) autowv.r > autowv.f
+	$(F77) $(FFLAGS) -c autowv.f
+	$(RF) $(RFLAGS) iwidok.r > iwidok.f
+	$(F77) $(FFLAGS) -c iwidok.f
+	$(RF) $(RFLAGS) lcasew.r > lcasew.f
+	$(F77) $(FFLAGS) -c lcasew.f
+	$(RF) $(RFLAGS) namdwv.r > namdwv.f
+	$(F77) $(FFLAGS) -c namdwv.f
+	$(SSPP) -r -$(SSPPFLAGS) redwav.r > redwav.x
+	$(RF) $(RFLAGS) redwav.x > redwav.f
+	$(F77) $(FFLAGS) -c redwav.f
+	$(RF) $(RFLAGS) wavlng.r > wavlng.f
+	$(F77) $(FFLAGS) -c wavlng.f
+	$(RF) $(RFLAGS) wriwav.r > wriwav.f
+	$(F77) $(FFLAGS) -c wriwav.f
+	$(RF) $(RFLAGS) setwpt.r > setwpt.f
+	$(F77) $(FFLAGS) -c setwpt.f
+== xwindow/makefile
+	ld $(LFLAGS) -r -o $@ $(OBJ)
+	$(CC) -g -c xclear.c $(CCFLAGS)
+	$(CC) -g -c xcrsrd.c $(CCFLAGS) 
+	$(CC) -g -c  xdraw.c $(CCFLAGS)
+	$(CC) -g -c xerase.c $(CCFLAGS)
+	$(CC) -g -c xflush.c $(CCFLAGS)
+	$(CC) -g -c xinit.c $(CCFLAGS)
+	$(CC) -g -c xread.c $(CCFLAGS)
+	$(CC) -g -c xtext.c $(CCFLAGS)
+	$(CC) -g -c xwrite.c $(CCFLAGS)
+	$(CC) -g -c  xsetline.c $(CCFLAGS)
+	$(SSPP) -r -$(SSPPFLAGS) gtest.r > gtest.x
+	$(RF) $(RFLAGS) gtest.x > gtest.f
+	$(F77) $(FFLAGS) gtest.f $(OBJ) ../syslib/fsleep.o \

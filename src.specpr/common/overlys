@@ -1,0 +1,46 @@
+#       overlay arrays for plots
+
+#       ovrflg  = -1 not defined  
+#               = 0 do not overlay
+#               = 1 overlay
+#               = 2 overlay with autoscale 2% margin  (user  says A)
+#               = 3 overlay with autoscale to min max (user says A2)
+#               = 4 overlay with autoscale to max, min stays as original (use syas A0)
+
+#       ovrflgb = stored setting of ovrflg when the overlay gets turned off
+#                 when turned back on, ovrflg(n) = ovrflgb(n)
+
+#       ovrclr  =     color (to be defined, future)
+
+#       ovrchn  = channels in spectrum
+ 
+#       ovrdat  = original data for overlay
+#       ovrwav  = wavelengths
+#       ovrdsc  = auto-scaled data
+
+#       ovtitle = titles
+#       ovfil   = file ID letter for overlsy spectrum
+#       ovrec   = record number for overlay
+#       ovwfil  = file ID letter for wavelengths
+#       ovwrec  = record number for overlay for wavelengths
+#       ovops   = overlay options
+
+#       Added 12/22/2009 RNC, updates from 3 to 6 overlays +autoscale 02/22/2012
+
+	common /ovrly1/   ovrflg, ovrflgb, ovrclr, ovrchn
+	common /ovrly1/   ovtitle, ovfil, ovrec 
+	common /ovrly1/   ovwfil, ovwrec, ovops
+        common /ovrly1/   ovrdat, ovrwav, ovrdsc
+
+	real*4 ovrdat(4852,6)
+	real*4 ovrwav(4852,6)
+	real*4 ovrdsc(4852,6)
+
+	integer*4 ovrflg(6)
+	integer*4 ovrflgb(6)
+	integer*4 ovrclr(6)
+	integer*4 ovrchn(6)
+
+	character*40 ovtitle(6)
+	character*4  ovops(6)
+	integer*4 ovfil(6), ovrec(6), ovwfil(6), ovwrec(6)

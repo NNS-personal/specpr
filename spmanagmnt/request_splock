@@ -1,0 +1,50 @@
+
+node=`hostname`
+work=/tmp/reqspl$$
+central_node=bgphp1
+spl=/usr/spool/uucppublic/specpr.locks
+cspl=~uucp/specpr.locks
+central_node_mngr=rclark
+
+cd /usr/src/cmd/specpr
+
+if [ -d $1 ]
+then
+	ls -l $1 > $work
+	if [ grep LCK $work > /dev/null ]
+	then
+		echo "Type in the reason for the lock."
+		echo "Then type in an end of file to terminate recording of reason"
+		cat > $work
+		if [ $central_node = $node ]
+		then
+			cp $work ${spl}/${1}/LCK..${central_node}
+			rm $work
+			/usr/local/bin/proc_rsplock_c $1 $central_node
+		else
+			mkdir ${spl}/$1
+			cp $work ${spl}/${1}/LCK..${node}
+			chmod 666 ${spl}/${1}/LCK..${node}
+			uucp ${spl}/${1}/LCK..${node} \
+					${central_node}!${cspl}/${1}
+			uux "${central_node}!proc_rsplock_c $1 $node"
+			echo "request for lock on specpr directory $1"
+			echo " has been sent to central to ${central_node}"
+			rm $work
+			exit 0
+		fi
+	else
+		echo "Lock already exists on this node"
+		ls -l ${1}/LCK..*
+		more ${1}/LCK..*
+		rm $work
+		exit 1
+	fi
+else
+	echo "Lock already exists on this node"
+	ls -l ${1}/LCK..*
+	more ${1}/LCK..*
+	rm $work
+	exit 1
+fi
+exit 0

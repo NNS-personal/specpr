@@ -1,0 +1,51 @@
+#!/bin/sh
+#  Script to add field spectra to an existing spd0xxx tape file
+#
+#
+#  test for command line arguments 1, 2, and 3
+#
+if test $# -lt 3
+   then echo " "
+      echo "syntax: fstospecpr-multiple   base-filename   spd0xxx   ending-number-of-spectra [flags]"
+      echo " "
+	echo " valid flags: -na   = no channel average (default)"
+	echo " valid flags: -av   = channel average"
+      exit 1
+fi
+#
+#  copy the files
+#
+basename=$1
+tapefile=$2
+nfiles=$3
+flags="-na"
+if [ "$4" = "-av" ]
+then
+	flags=$4
+fi
+count=0
+#
+while test $count -le $nfiles
+   do
+      if test $count -le 9
+         then
+            extension=.00$count
+         elif test $count -le 99
+            then
+            extension=.0$count
+         else
+            extension=.$count
+      fi
+      echo " "
+      echo "------------------------------------------------"
+      echo "TRANSLATING FILE:" $basename$extension
+      echo "fstospecpr $flags $basename$extension $tapefile"
+      fstospecpr -linux $flags $basename$extension $tapefile
+      count=`expr $count + 1`
+done
+#
+#  finish
+#
+echo " "
+echo "*** DONE ***"
+

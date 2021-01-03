@@ -1,0 +1,39 @@
+
+node=`hostname`
+work=/tmp/reqspl$$
+central_node=bgphp1
+spl=/usr/spool/uucppublic/specpr.locks
+cspl=~uucp/specpr.locks
+central_node_mngr=rclark
+allremnodes="uhpgvax bgpdsu1"
+
+cd /usr/src/cmd/specpr
+
+if [ -d $1 ]
+then
+	ls -l $1 > $work
+	if [ grep LCK $work > /dev/null ]
+	then
+#		cp ${spl}/${1}/LCK..${2} ${1}/LCK..${2}
+#		for i in $allremnodes
+#		do
+#			uucp ${spl}/${1}/LCK..${2} ${i}!${spl}/${1}/LCK..${2}
+#			uux "${i}!proc_splock $1 $2"
+#		done
+	else
+		mail ${central_node}!${central_node_mngr} specmgr <<!
+~s Lock exists error
+Lock exists when it should not on specpr directory $1
+Managers must resolve
+!
+
+	fi
+else
+	mail ${central_node}!${central_node_mngr} specmgr <<!
+~s specpr dir does not exist
+Specpr directory does not exist: $1
+Managers must resolve.
+!
+
+fi
+exit 0
